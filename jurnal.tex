@@ -198,7 +198,7 @@ This implies that our data set is independent of measurement location and the nu
 
 \begin{figure}
 \centering
-\epsfig{file=netscicom-graphs/20-data/cdf-num.eps, height=2in, width=3.2in}
+\epsfig{file=graphs/new/cdf-num.eps, height=2in, width=3.2in}
 \caption{CDF plot of number of peers for every swarm during measurement with 104 to 1400 time samples for each torrent. This clearly shows high variation in the number of peers in every swarm, due to churn in Bittorrent networks.} 
 \label{fig:num_peers}
 \vspace{-2mm}
@@ -298,7 +298,7 @@ We address these concerns next.
 \begin{figure}
 \centering
 %\epsfig{file=netscicom-graphs/20-data/cdf-total-p.eps, height=2in, width=3.2in}
-\epsfig{file=netscicom-graphs/20-data/aggregate-p-cdf.eps, height=2in, width=3.2in}
+\epsfig{file=graphs/new/aggregate-p-cdf.eps, height=2in, width=3.2in}
 \caption{CDF plot of $p$ value of K-S statistics. It shows that across our entire set of Bittorrent snapshots, around $45\%$ of the time a power-law distribution is not a good fit for the data. 
 The inset figure shows the CDF plot $p$ value for each torrent. The dash line on $p$ value = 0.1 is the threshold.} 
 \label{fig:cdf-p}
@@ -308,7 +308,7 @@ The inset figure shows the CDF plot $p$ value for each torrent. The dash line on
 
 \begin{figure}
 \centering
-\epsfig{file=netscicom-graphs/20-data/gabung-korelasi-p-rho.eps, height=2in, width=3.2in}
+\epsfig{file=graphs/new/gabung-korelasi-p-rho.eps, height=2in, width=3.2in}
 \caption{Scatter plot of $p$ value vs $\rho$ value. 
         Points in area 1 are the samples where a power-law with exponential cut-off is a more plausible model than a power-law.
         In area 3, a pure power-law may be more plausible than power-law with exponential cut-off, while in area 2 the results are ambiguous.} 
@@ -318,7 +318,7 @@ The inset figure shows the CDF plot $p$ value for each torrent. The dash line on
 
 \begin{figure}
 \centering
-\epsfig{file=netscicom-graphs/20-data/gabung-korelasi-p-rho-4region.eps, height=2in, width=3.2in}
+\epsfig{file=graphs/new/gabung-korelasi-p-rho-4region.eps, height=2in, width=3.2in}
 \caption{Scatter plot of $p$ value vs loglikelihood ratio (LR) for $\rho < 0.1$. In this figure we define area 1: LR=positive and $p$ value $<0.1$, area 2: LR=positive and $p$ value $>0.1$, area 3: LR=negative and $p$ value $<0.1$, area 4: LR=negative and $p$ value $>0.1$. There are no points in area 1 and area 2, meaning that the power-law model is not a better model for all data; instead $42\%$ of the points lie in area 3 and $58\%$ of the points lie in area 4.} 
 \label{fig:scatter-pvalue-vs-lr-for-rho-le-01}
 \vspace{-2mm}
@@ -393,7 +393,7 @@ This low clustering coefficient observation is the same as that observed by Dale
 Considering only the low clustering coefficient, the Bittorrent topologies seem to be close to random graphs.
 \begin{figure}
 \centering
-\epsfig{file=netscicom-graphs/20-data/cdf-clustering.eps, height=2in, width=3.2in}
+\epsfig{file=graphs/new/cdf-clustering.eps, height=2in, width=3.2in}
 \caption{CDF plot of the clustering coefficient for each torrent. It is clearly show that Bittorrent networks have low clustering coefficient.} 
 \label{fig:cdf-clustering}
 \vspace{-2mm}
@@ -466,9 +466,9 @@ We thank Daniel Stutzbach for help on graph sampling, Aaron Clauset for help on 
 
 \profile{Hanako Denshi}{%
 was born in 1976. 
-He has bachelor degree and master degree from
+He received bachelor degree and master degree from
 Institute of Technology Bandung.
-He is currently PhD student at Keio University
+He is currently Ph.D student at Keio University's
 Shonan Fujisawa Campus.
 }
 \label{profile}
@@ -482,18 +482,24 @@ Engineers (IEICE), Kikai-Shinko-Kaikan Bldg.,
 }
 
 \profile{Rodney Van Meter}{%
-was born in 19xx. 
-...
-The Institute of Electronics, Information and Communication
-Engineers (IEICE), Kikai-Shinko-Kaikan Bldg., 
-5--8, Shibakoen 3-chome, Minato-ku, Tokyo, 105--0011 Japan.
+received a B.S. from the California Institute of Technology in 1986,
+an M.S. from the University if Southern California in 1991, and
+a Ph.D. from Keio University in 2006. His research interests include
+storage systems, networking, post Moore's law computer architecture,
+and quantum computing. He is an Associate Professor of Environment and
+Information Studies at Keio University's Shonan Fujisawa Campus.
 }
 \profile{Jun Murai}{%
-was born in 19xx. 
-...
-The Institute of Electronics, Information and Communication
-Engineers (IEICE), Kikai-Shinko-Kaikan Bldg., 
-5--8, Shibakoen 3-chome, Minato-ku, Tokyo, 105--0011 Japan.
+was born in March 1955 in Tokyo. Graduated Keio University in 1979,
+Department of Mathematics, Faculty of Science and Technology.
+He received his M.S. for Computer Science from Keio University in 1981,
+and received his Ph.D. in Computer Science, Keio University in 1987. 
+He specializes in computer science, computer network, and computer 
+communication. He is currently the Dean Faculty of Environment and
+Information Studies, Keio University since October 2009. Former
+Vice-President of Keio University from May 2005 to May 2009. He was
+an Executive Director of the Keio Research Institute at SFC, Keio
+University from 1999 to 2005.
 }
 
 
