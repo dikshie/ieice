@@ -106,7 +106,6 @@ This paper also inspects the clustering property.
 Our findings in this work shed light into puzzling, not yet explained, that  Bittorrent networks can be described by power-law with exponential cut-off random networks.
 This surprising result may contradict earlier findings and our simulations demonstrate this same phenomenon, suggesting that these results are not simply measurement artifacts.
 
-
 \section{Bittorrent Peer Exchange}\label{background}
 Bittorrent is a P2P application designed to distribute large files with a focus on scalability and efficiency.  
 Before distributing a file, a \textit{metainfo} file must be created.  
@@ -115,15 +114,18 @@ The \textit{tracker} is a central server keeping a list of all peers participati
 If a peer wants to join a Bittorrent swarm, it must download the metainfo file from a well-known Bittorrent tracker, usually via HTTP. 
 After the metainfo file is read, the Bittorrent application will 
 When joining a swarm, a Bittorrent application contacts a tracker, which responds with an initial peer set of randomly selected peers, possibly including seed and leecher IP addresses and port numbers.  
-\begin{figure}
-\centering
-\epsfig{file=graphs/pex_2.eps, height=2in, width=3.2in}
+
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[scale=0.3]{graphs/pex_2.eps}
+\end{center}
 \caption{Simplified view of our approach. Left: At time t=1, the actor gets a PEX message from peer A and
 learns that peer A is connected to peer B and C. At t=2, the actor gets  PEX messages from peers C and A. The actor
 learns that now peer A is connected to peer D. Thus the actor knows the properties of peer A at t=1 and t=2.} 
 \label{fig:pexworks}
-\vspace{-2mm}
+\vspace{-5mm}
 \end{figure}
+
 PEX is a mechanism introduced in Bittorrent to discover other peers in the swarm, in which two connected peers exchange messages containing a set of connected peers.  
 With PEX, peers only need to use the tracker as an initial source of peers.   
 Based on a survey by the authors of several Bittorent client web sites, it appears that most clients began to introduce PEX in 2007 \cite{client}.
@@ -159,9 +161,9 @@ However, in a P2P network, the characteristics of the network topology vary grea
 We consider $\tau=3 $ minutes to be a reasonable estimate of minimum session length in Bittorrent \cite{stutzbach2006understanding}. 
 
 \subsection{Graph Sampling}
-%Due to the large and dynamic nature of Bittorrent networks, it is often very difficult or impossible to capture global properties. 
-%Facing this difficulty, sampling is a natural approach.
-%However, collecting unbiased or representative sampling is also sometimes a challenging task.
+Due to the large and dynamic nature of Bittorrent networks, it is often very difficult or impossible to capture global properties. 
+Facing this difficulty, sampling is a natural approach.
+However, collecting unbiased or representative sampling is also sometimes a challenging task.
 
 Suppose that a Bittorrent overlay network is a graph $G(V,E)$ with the peers or nodes as vertices and connections between the peers as edges. 
 If we observe the graph in a time series,  i.e., we take samples of the graph, the time-indexed graph is $G_t = G(V_t,E_t)$.   
@@ -196,12 +198,12 @@ Removal of some peers in data processing is valid in terms of sampling with dyna
 In terms of connectivity, two popular Bittorrent clients: uTorrent and Vuze, by default try to connect to peer candidates randomly without any preference, thus we have random data sets.
 This implies that our data set is independent of measurement location and the number of measurement locations.
 
-\begin{figure}
-\centering
-\epsfig{file=graphs/new/cdf-num.eps, height=2in, width=3.2in}
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[scale=0.6]{graphs/new/cdf-num.eps}
+\end{center}
 \caption{CDF plot of number of peers for every swarm during measurement with 104 to 1400 time samples for each torrent. This clearly shows high variation in the number of peers in every swarm, due to churn in Bittorrent networks.} 
 \label{fig:num_peers}
-\vspace{-2mm}
 \end{figure}
 
 %----------------- DATA ANALYSIS BACKGROUND --------------------
@@ -251,14 +253,14 @@ It is clear that the number of peers has  high variability due to churns in Bitt
 %The number of peers will have a relationship with the clustering coefficient, which will be explained in section \ref{clusteringcoef}.
 
 \subsection{Power-law Distribution of Node Degree}
-%The degree of a node in a network is the number of edges connected to that node. 
-%If we define $p_k$ as the  fraction of nodes in the network that have degree $k$, then $p_k$ is the probability that a node chosen uniformly at random %has degree $k$. 
-%If we plot a histogram of $p_k$ then this histogram is the degree distribution for  the network. 
-%Instead of a histogram plot,  we show node degree data in cumulative distribution  function (CDF) plot which can be expressed as:
-%\begin{equation}
-%P_k = \sum_{k'=k}^{\infty} p_{k'}.
-%\end{equation}
-%The CDF plot has advantages over the node degree histogram because it does not suffer from binning problems  \cite{newman2003structure}.
+The degree of a node in a network is the number of edges connected to that node. 
+If we define $p_k$ as the  fraction of nodes in the network that have degree $k$, then $p_k$ is the probability that a node chosen uniformly at random %has degree $k$. 
+If we plot a histogram of $p_k$ then this histogram is the degree distribution for  the network. 
+Instead of a histogram plot,  we show node degree data in cumulative distribution  function (CDF) plot which can be expressed as:
+\begin{equation}
+P_k = \sum_{k'=k}^{\infty} p_{k'}.
+\end{equation}
+The CDF plot has advantages over the node degree histogram because it does not suffer from binning problems.  %\cite{newman2003structure}.
 
 We want to know the power-law distribution of the measured Bittorrent networks, and we do not know \textit{a priori} if our data are power-law distributed.
 Simply calculating the estimated scaling parameter gives no indication of whether the power-law is a good model.  
@@ -287,43 +289,23 @@ The usage of the maximum likelihood estimators for parameter estimation in power
 In the goodness-of-fit test, a large $p$ value does not mean the power-law  is the correct distribution for data sets, because there may be other distributions that match the data sets and there is always a possibility that small value of $p$ the distribution will follow a power-law even though the power-law is not the right model\cite{clauset2009power}. 
 We address these concerns next.
 
-\begin{figure}
-\centering
-\epsfig{file=graphs/output.eps, width=3.2in}
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[scale=0.6]{graphs/output.eps}
+\end{center}
 \caption{Node degree fit for snapshots of two torrents, with three fits shown in log scale. Torrent1: for $x_{min}=1$ , $\alpha = 2.9$, and $p=0.01$. For $x_{min}=2$ , $\alpha = 2.11$, and $p = 0.01$. Torrent3: for $x_{min}=1$, $\alpha = 2.1$, and $p = 0.1$. }
 \label{fig:fitting}
-\vspace{-2mm}
 \end{figure}
 
-\begin{figure}
-\centering
+\begin{figure}[tb]
+\begin{center}
 %\epsfig{file=netscicom-graphs/20-data/cdf-total-p.eps, height=2in, width=3.2in}
-\epsfig{file=graphs/new/aggregate-p-cdf.eps, height=2in, width=3.2in}
+\includegraphics[scale=0.6]{graphs/new/aggregate-p-cdf.eps}
+\end{center}
 \caption{CDF plot of $p$ value of K-S statistics. It shows that across our entire set of Bittorrent snapshots, around $45\%$ of the time a power-law distribution is not a good fit for the data. 
 The inset figure shows the CDF plot $p$ value for each torrent. The dash line on $p$ value = 0.1 is the threshold.} 
 \label{fig:cdf-p}
-\vspace{-2mm}
 \end{figure}
-
-
-\begin{figure}
-\centering
-\epsfig{file=graphs/new/gabung-korelasi-p-rho.eps, height=2in, width=3.2in}
-\caption{Scatter plot of $p$ value vs $\rho$ value. 
-        Points in area 1 are the samples where a power-law with exponential cut-off is a more plausible model than a power-law.
-        In area 3, a pure power-law may be more plausible than power-law with exponential cut-off, while in area 2 the results are ambiguous.} 
-\label{fig:scatter-pvalue-vs-rho}
-\vspace{-2mm}
-\end{figure}
-
-\begin{figure}
-\centering
-\epsfig{file=graphs/new/gabung-korelasi-p-rho-4region.eps, height=2in, width=3.2in}
-\caption{Scatter plot of $p$ value vs loglikelihood ratio (LR) for $\rho < 0.1$. In this figure we define area 1: LR=positive and $p$ value $<0.1$, area 2: LR=positive and $p$ value $>0.1$, area 3: LR=negative and $p$ value $<0.1$, area 4: LR=negative and $p$ value $>0.1$. There are no points in area 1 and area 2, meaning that the power-law model is not a better model for all data; instead $42\%$ of the points lie in area 3 and $58\%$ of the points lie in area 4.} 
-\label{fig:scatter-pvalue-vs-lr-for-rho-le-01}
-\vspace{-2mm}
-\end{figure}
-
 
 \subsection{Alternative Distributions}
 Even if we have estimated the power-law parameter properly and the fit is decent, it does not mean the power-law model is good.
@@ -341,6 +323,24 @@ In likelihood ratio test, we must provide the significance value ($\rho$ value).
 For concrete explanation and real-world examples, we refer the readers to \cite{clauset2009power}.
 
 Under the likelihood ratio test, we compare the pure power-law model to power-law with exponential cut-off, and the $\rho$ value here helps us establish which of three possibilities occurs: (i) $\rho > 0.1$ means there is no significant difference between the likelihood of the data under the two hypotheses being compared and thus neither is favored over the other; if we already rejected the pure power-law model, then this does not necessarily tell us that we also can reject the alternative model; (ii) $\rho  < 0.1$ and the sign of LR = negative means that there is a significant difference in the likelihoods and that the alternative model is better; if we have already rejected the pure power-law model, then this case simply tells us that the alternative model is better than the bad model we rejected; (iii) if $\rho < 0.1$ and the sign of LR = positive means that there is a significant difference and that the pure power-law model is better than the alternative; if we have already rejected the pure power-law model, then this case tells us the alternative is even worse than the bad model we already rejected.
+
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[scale=0.6]{graphs/new/gabung-korelasi-p-rho.eps}
+\end{center}
+\caption{Scatter plot of $p$ value vs $\rho$ value. 
+        Points in area 1 are the samples where a power-law with exponential cut-off is a more plausible model than a power-law.
+        In area 3, a pure power-law may be more plausible than power-law with exponential cut-off, while in area 2 the results are ambiguous.} 
+\label{fig:scatter-pvalue-vs-rho}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[scale=0.6]{graphs/new/gabung-korelasi-p-rho-4region.eps}
+\end{center}
+\caption{Scatter plot of $p$ value vs loglikelihood ratio (LR) for $\rho < 0.1$. In this figure we define area 1: LR=positive and $p$ value $<0.1$, area 2: LR=positive and $p$ value $>0.1$, area 3: LR=negative and $p$ value $<0.1$, area 4: LR=negative and $p$ value $>0.1$. There are no points in area 1 and area 2, meaning that the power-law model is not a better model for all data; instead $42\%$ of the points lie in area 3 and $58\%$ of the points lie in area 4.} 
+\label{fig:scatter-pvalue-vs-lr-for-rho-le-01}
+\end{figure}
 
 Figure \ref{fig:scatter-pvalue-vs-rho} shows a $p$ value vs $\rho$ value scatter plot, divided into three areas.
 Area 1: $\rho$ value $<0.1$ and $p$ value $>0$. 
@@ -391,12 +391,13 @@ Figure \ref{fig:cdf-clustering} shows the CDF clustering coefficient value of ou
 Only one torrent exhibits clustering coefficient less than $0.1$ for about $40\%$ of the snapshots, while for the other torrents, more than  $70\%$ are less than $0.1$.
 This low clustering coefficient observation is the same as that observed by Dale \textit{et al}. \cite{dale2008evolution}.
 Considering only the low clustering coefficient, the Bittorrent topologies seem to be close to random graphs.
-\begin{figure}
-\centering
-\epsfig{file=graphs/new/cdf-clustering.eps, height=2in, width=3.2in}
+
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[scale=0.6]{graphs/new/cdf-clustering.eps}
+\end{center}
 \caption{CDF plot of the clustering coefficient for each torrent. It is clearly show that Bittorrent networks have low clustering coefficient.} 
 \label{fig:cdf-clustering}
-\vspace{-2mm}
 \end{figure}
 
 \section{Confirmation via Simulation}\label{simulation}
@@ -411,9 +412,10 @@ The Spearman rank correlation coefficient is a non-parametric correlation measur
 without making any assumptions of a monotonic function.
 The Spearman rank correlation test gives $0.38 \leq \rho \leq 0.5$, which we consider to be moderately well correlated. 
 
-\begin{figure}
-\centering
-\epsfig{file=netscicom-graphs/simula.eps, height=2in, width=3.2in}
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[scale=0.6]{netscicom-graphs/simula.eps}
+\end{center}
 \caption{$\alpha$ estimation and $p$ value for global topology and topology inferred from PEX where both done in our simulator.
 The simulator confirms that the PEX method can be used to estimate $\alpha$.} 
 \label{fig:simulation}
