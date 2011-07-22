@@ -235,10 +235,10 @@ p(x) = Pr(X=x) = Cx^{- \alpha}.
 This distribution diverges on zero, therefore there must be a lower bound of $x$, called $x_{min} > 0$, that holds for the sample to be fitted by a power-law. 
 If we want to estimate a good power-law scaling parameter then we must also have a good $x_{min}$ estimation. 
 
-%Normalizing (\ref{eq:powerlawdiscrete})  we get
-%\begin{equation}
-%p(x)=\frac{x^{- \alpha}}{\zeta(\alpha,x_{min})}.
-%\end{equation} 
+Normalizing (\ref{eq:powerlawdiscrete})  we get
+\begin{equation}
+p(x)=\frac{x^{- \alpha}}{\zeta(\alpha,x_{min})}.
+\end{equation} 
 %where $\zeta$ is the Hurwitz zeta function. %defined as
 
 The most common way to fit empirical data to a power-law is to take the logarithm of equation \ref{eq:powerlaw} and draw a straight line on a logarithmic plot \cite{mitzenmacher2004brief}.  
@@ -310,18 +310,18 @@ The inset figure shows the CDF plot $p$ value for each torrent. The dash line on
 \subsection{Alternative Distributions}
 Even if we have estimated the power-law parameter properly and the fit is decent, it does not mean the power-law model is good.
 It is always possible that non-power-law models are better than the power-law model.
+Direct comparison of models is a method which can directly compare two distributions againts each other.
+There are several methods for direct comparison such as \textit{likelihood ratio test}, \textit{Bayesian test}, and \textit{Minimum description length}.
+The likelihood ratio test idea is to compute likehood of the data sets under two distributions. 
+The one with the higher likehood is the better fit. 
 We use the likelihood ratio test \cite{vuong1989likelihood} to see whether other distributions can give better parameter estimation.
-%The general likelihood ratio test statistic asymptotically has a standard Gaussian distribution when the competing models are equally good.
-%We now hypothesize that the the smaller family of power-law distributions may give a better fit to our data sets. 
-We only consider a power-law model and a power-law with exponential cut-off model as examples to show model selection.
-Model selection for power-law model and power-law with exponential cut-off is a kind of nested model selection problem. 
-In a nested model selection,  there is always the possibility that a bigger family (power-law) can provide as good a fit as the smaller family (power-law with exponential cut-off). 
-In likelihood ratio test, we must provide the significance value ($\rho$ value).
-%To distinguish between such models, a modified likelihood ratio test is needed. 
-%The nested case model asymptotically adopts chi-squared distribution.  
-%Vuong \cite{vuong1989likelihood} provides foundation of the significance value ($\rho$ value) for likelihood ratio test. 
-For concrete explanation and real-world examples, we refer the readers to \cite{clauset2009power}.
 
+\subsubsection{Nested Case}
+We now hypothesize that the the smaller family of power-law distributions may give a better fit to our data sets.
+We only consider a power-law model and a power-law with exponential cut-off model as examples to show model selection.
+Model selection for power-law model and power-law with exponential cut-off is a kind of nested model selection problem.
+In a nested model selection,  there is always the possibility that a bigger family (power-law) can provide as good a fit as the smaller family (power-law with exponential cut-off).
+In likelihood ratio test, we must provide the significance value ($\rho$ value).
 Under the likelihood ratio test, we compare the pure power-law model to power-law with exponential cut-off, and the $\rho$ value here helps us establish which of three possibilities occurs: (i) $\rho > 0.1$ means there is no significant difference between the likelihood of the data under the two hypotheses being compared and thus neither is favored over the other; if we already rejected the pure power-law model, then this does not necessarily tell us that we also can reject the alternative model; (ii) $\rho  < 0.1$ and the sign of LR = negative means that there is a significant difference in the likelihoods and that the alternative model is better; if we have already rejected the pure power-law model, then this case simply tells us that the alternative model is better than the bad model we rejected; (iii) if $\rho < 0.1$ and the sign of LR = positive means that there is a significant difference and that the pure power-law model is better than the alternative; if we have already rejected the pure power-law model, then this case tells us the alternative is even worse than the bad model we already rejected.
 
 \begin{figure}[tb]
@@ -368,6 +368,15 @@ We believe that these results are caused by peers that are not willing to mainta
 %We see  some snapshots have $\rho$ value less than 0.1 and we can say that on that snapshots power-law with exponential cut-off can be ruled out. 
 %We argue that the power-law with exponential cut-off occurs as implication of node degree bound in Bittorrent networks since a node wants only to attach to neighbors who will give best download rate and Bitorrent client software itself has default maximum connection limit.
 These observations clearly demonstrate that comparing the model to other models is a very complex task in highly dynamic networks.
+
+\subsubsection{Non-Nested Case}
+In non-nested case, we compare power-law distribution with log-normal distribution.
+We calculate the ratio of two likelihoods distributions or the logarithm of the ratio, which is positive or negative depending on which distribution is better of zero in the event of a tie. 
+The positive or negative sign of log-likelihood does not definitively indicate which model is the better fit. 
+Vuong's \cite{vuong1989likelihood}  method gives a $\rho$-value that can tell us whether the observed sign of likelihood ratio is statistically significant.
+If this $\rho$-value is small (less than 0.1) then the sign is reliable indicator of which model is the better fit to the data. 
+If $\rho$-value is large the sign is not reliable and the test does not favor either model over the other. 
+
 
 \subsection{Clustering Coefficient}\label{clusteringcoef}
 
