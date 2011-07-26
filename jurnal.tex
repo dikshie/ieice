@@ -370,11 +370,11 @@ We believe that these results are caused by peers that are not willing to mainta
 These observations clearly demonstrate that comparing the model to other models is a very complex task in highly dynamic networks.
 
 \subsubsection{Non-Nested Case}
-In non-nested case, we compare power-law distribution with log-normal distribution.
+In non-nested case, we compare power-law distribution with log-normal distribution and exponential distribution.
 We calculate the ratio of two likelihoods distributions or the logarithm of the ratio, which is positive or negative depending on which distribution is better of zero in the event of a tie. 
 The positive or negative sign of log-likelihood ratio does not definitively indicate which model is the better fit. 
 Vuong's \cite{vuong1989likelihood}  method gives a $\rho$-value that can tell us whether the observed sign of likelihood ratio is statistically significant.
-If this $\rho$-value is small (less than 0.1) then the sign of log-likehood ration is reliable indicator of which model is the better fit to the data. 
+If this $\rho$-value is small (less than 0.1) then the sign of log-likehood ratio is reliable indicator of which model is the better fit to the data. 
 If $\rho$-value is large the sign of log-likehood ratio is not reliable and the test does not favor either model over the other. 
 
 \begin{figure}[tb]
@@ -392,6 +392,11 @@ If $\rho$-value is large the sign of log-likehood ratio is not reliable and the 
 \caption{Scatter plot of log-likehood ratio for power-law vs log-normal.}
 \label{fig:scatter-lognorm}
 \end{figure}
+
+Figure \ref{fig:cdf-p-lognorm} shows the CDF of $\rho$-value for log-likehood ratio between power-law and log-normal.  
+Only less than $6\%$ of $\rho$-value less than $0.1$.   
+Figure \ref{fig:scatter-lognorm} shows the log-likehood ratio where $\rho$-value less than $0.1$. 
+All log-likehood ratio values have negative sign therefore log-normal is not best fit.
 
 \begin{figure}[tb]
 \begin{center}
