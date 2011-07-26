@@ -372,10 +372,47 @@ These observations clearly demonstrate that comparing the model to other models 
 \subsubsection{Non-Nested Case}
 In non-nested case, we compare power-law distribution with log-normal distribution.
 We calculate the ratio of two likelihoods distributions or the logarithm of the ratio, which is positive or negative depending on which distribution is better of zero in the event of a tie. 
-The positive or negative sign of log-likelihood does not definitively indicate which model is the better fit. 
+The positive or negative sign of log-likelihood ratio does not definitively indicate which model is the better fit. 
 Vuong's \cite{vuong1989likelihood}  method gives a $\rho$-value that can tell us whether the observed sign of likelihood ratio is statistically significant.
-If this $\rho$-value is small (less than 0.1) then the sign is reliable indicator of which model is the better fit to the data. 
-If $\rho$-value is large the sign is not reliable and the test does not favor either model over the other. 
+If this $\rho$-value is small (less than 0.1) then the sign of log-likehood ration is reliable indicator of which model is the better fit to the data. 
+If $\rho$-value is large the sign of log-likehood ratio is not reliable and the test does not favor either model over the other. 
+
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[scale=0.6]{graphs/non-nested/aggregate-p-cdf-non-nested-lognorm.eps}
+\end{center}
+\caption{CDF plot of $p$ for power-law vs log-normal.}
+\label{fig:cdf-p-lognorm}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[scale=0.6]{graphs/non-nested/lr-p-lognorm.eps}
+\end{center}
+\caption{Scatter plot of log-likehood ratio for power-law vs log-normal.}
+\label{fig:scatter-lognorm}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[scale=0.6]{graphs/non-nested/aggregate-p-cdf-non-nestedi-exp.eps}
+\end{center}
+\caption{CDF plot of $p$ for power-law vs exponential.}
+\label{fig:cdf-p-exp}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[scale=0.6]{graphs/non-nested/lr-pi-exp.eps}
+\end{center}
+\caption{Scatter plot of log-likehood ratio for power-law vs exponential.}
+\label{fig:scatter-exp}
+\end{figure}
+
+
+
+
+
 
 
 \subsection{Clustering Coefficient}\label{clusteringcoef}
@@ -475,7 +512,7 @@ We thank Daniel Stutzbach for help on graph sampling, Aaron Clauset for help on 
 %\bibitem{}
 %\end{thebibliography}
 
-\profile{Hanako Denshi}{%
+\profile{Mohamad Dikshie Fauzie}{%
 was born in 1976. 
 He received bachelor degree and master degree from
 Institute of Technology Bandung.
@@ -512,9 +549,6 @@ Vice-President of Keio University from May 2005 to May 2009. He was
 an Executive Director of the Keio Research Institute at SFC, Keio
 University from 1999 to 2005.
 }
-
-
-
 
 
 \end{document}
