@@ -9,7 +9,7 @@
 %\documentclass[letter]{ieice}
 %\documentclass[brief]{ieice}
 \usepackage[dvips]{graphicx}
-%\usepackage[fleqn]{amsmath}
+\usepackage[fleqn]{amsmath}
 \usepackage[varg]{txfonts}
 \usepackage{url}
 \usepackage{cite}
@@ -338,7 +338,7 @@ Under the likelihood ratio test, we compare the pure power-law model to power-la
 \begin{center}
 \includegraphics[scale=0.6]{graphs/new/gabung-korelasi-p-rho-4region.eps}
 \end{center}
-\caption{Scatter plot of $p$ value vs loglikelihood ratio (LR) for $\rho < 0.1$. In this figure we define area 1: LR=positive and $p$ value $<0.1$, area 2: LR=positive and $p$ value $>0.1$, area 3: LR=negative and $p$ value $<0.1$, area 4: LR=negative and $p$ value $>0.1$. There are no points in area 1 and area 2, meaning that the power-law model is not a better model for all data; instead $42\%$ of the points lie in area 3 and $58\%$ of the points lie in area 4.} 
+\caption{Scatter plot of $p$ value vs log-likelihood ratio (LR) for $\rho < 0.1$. In this figure we define area 1: LR=positive and $p$ value $<0.1$, area 2: LR=positive and $p$ value $>0.1$, area 3: LR=negative and $p$ value $<0.1$, area 4: LR=negative and $p$ value $>0.1$. There are no points in area 1 and area 2, meaning that the power-law model is not a better model for all data; instead $42\%$ of the points lie in area 3 and $58\%$ of the points lie in area 4.} 
 \label{fig:scatter-pvalue-vs-lr-for-rho-le-01}
 \end{figure}
 
@@ -373,53 +373,53 @@ These observations clearly demonstrate that comparing the model to other models 
 In non-nested case, we compare power-law distribution with log-normal distribution and exponential distribution.
 We calculate the ratio of two likelihoods distributions or the logarithm of the ratio, which is positive or negative depending on which distribution is better of zero in the event of a tie. 
 The positive or negative sign of log-likelihood ratio does not definitively indicate which model is the better fit. 
-Vuong's \cite{vuong1989likelihood}  method gives a $\rho$-value that can tell us whether the observed sign of likelihood ratio is statistically significant.
-If this $\rho$-value is small (less than 0.1) then the sign of log-likehood ratio is reliable indicator of which model is the better fit to the data. 
-If $\rho$-value is large the sign of log-likehood ratio is not reliable and the test does not favor either model over the other. 
+Vuong's \cite{vuong1989likelihood}  method gives a $\rho$ value that can tell us whether the observed sign of likelihood ratio is statistically significant.
+If this $\rho$ value is small (less than 0.1) then the sign of log-likehood ratio is reliable indicator of which model is the better fit to the data. 
+If $\rho$ value is large the sign of log-likehood ratio is not reliable and the test does not favor either model over the other. 
 
 \begin{figure}[tb]
 \begin{center}
 \includegraphics[scale=0.6]{graphs/non-nested/aggregate-p-cdf-non-nested-lognorm.eps}
 \end{center}
-\caption{CDF plot of $p$ for power-law vs log-normal.}
+\caption{CDF plot of $\rho$ value of log-likehood ratio test for power-law vs log-normal. Only $5.5\%$ $\rho$ values are less than $0.1$.}
 \label{fig:cdf-p-lognorm}
 \end{figure}
 \begin{figure}[tb]
 \begin{center}
 \includegraphics[scale=0.6]{graphs/non-nested/lr-p-lognorm.eps}
 \end{center}
-\caption{Scatter plot of log-likehood ratio for power-law vs log-normal.}
+\caption{Scatter plot of log-likehood ratio for power-law vs log-normal. All of log-likelihood ratio values sign are negative.}
 \label{fig:scatter-lognorm}
 \end{figure}
 
-Figure \ref{fig:cdf-p-lognorm} shows the CDF of $\rho$-value for log-likehood ratio between power-law and log-normal.  
-Only less than $6\%$ of $\rho$-value less than $0.1$.   
-Figure \ref{fig:scatter-lognorm} shows the log-likehood ratio where $\rho$-value less than $0.1$. 
+Figure \ref{fig:cdf-p-lognorm} shows the CDF of $\rho$ value for log-likehood ratio between power-law and log-normal.  
+Only less than $5.5\%$ of $\rho$-value less than $0.1$.   
+Figure \ref{fig:scatter-lognorm} shows the log-likehood ratio where $\rho$ value less than $0.1$. 
 All log-likehood ratio values have negative sign therefore log-normal is not best fit compare to power-law.
 
 \begin{figure}[tb]
 \begin{center}
 \includegraphics[scale=0.6]{graphs/non-nested/aggregate-p-cdf-non-nestedi-exp.eps}
 \end{center}
-\caption{CDF plot of $p$ for power-law vs exponential.}
+\caption{CDF plot of $\rho$ value of log-likehood ratio test for power-law vs exponential. Only $13\%$ $\rho$ values are less than $0.1$.}
 \label{fig:cdf-p-exp}
 \end{figure}
 \begin{figure}[tb]
 \begin{center}
 \includegraphics[scale=0.6]{graphs/non-nested/lr-pi-exp.eps}
 \end{center}
-\caption{Scatter plot of log-likehood ratio for power-law vs exponential.}
+\caption{Scatter plot of log-likehood ratio for power-law vs exponential. All log-likelihood ratio values sign are negative.}
 \label{fig:scatter-exp}
 \end{figure}
 
-Figure \ref{fig:cdf-p-exp} shows the CDF of $\rho$-value for log-likehood ratio between power-law and exponential. 
-Less than $13\%$ of $\rho$-value less than $0.1$.   
-Figure \ref{fig:scatter-exp} shows the log-likelihood ratio where $\rho$-value less than $0.1$. 
+Figure \ref{fig:cdf-p-exp} shows the CDF of $\rho$ value for log-likehood ratio between power-law and exponential. 
+Less than $13\%$ of $\rho$ value less than $0.1$.   
+Figure \ref{fig:scatter-exp} shows the log-likelihood ratio where $\rho$ value less than $0.1$. 
 Since all log-likelihood ratio values have negative sign therefore exponential is not best fit compare to power-law.
 
-The results of $\rho$-values that larger than $0.1$ make log-likelihood ratio become ambiguous therefore
+The results of $\rho$ values that larger than $0.1$ make log-likelihood ratio become ambiguous therefore
 we found for almost data sets the likelihood ratio tests can not give conclusive answer. 
-In that case, it is important to look at physical motivation or theoretical factors or design factors behind the systems to make a sensible judgment. 
+In that case, it is important to look at physical motivation or theoretical factors or design factors behind the systems to make a sensible judgement. 
 We repeat our message that comparing models in highly dynamic networks is very complex tasks.
 
 
