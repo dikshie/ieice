@@ -282,9 +282,9 @@ This figure shows that from the K-S statistics point of view, around $45\%$ of t
 %This figure explain that every swarm has different number of $p$ value $\ge 0.1$.
 %Some Bittorrent swarms do not exhibit power-law model and some others show the plausibility of power-law model.
 
-However these data sets must be interpreted with care. 
+However, these data sets must be interpreted with care. 
 The usage of the maximum likelihood estimators for parameter estimation in power-law is guaranteed to be unbiased only in the asymptotic limit of large sample size, and some of our data sets fall below the rule of thumb for sample size, $n=50$ \cite{clauset2009power}. 
-In the goodness-of-fit test, a large $p$ value does not mean the power-law  is the correct distribution for data sets, because there may be other distributions that match the data sets and there is always a possibility that small value of $p$ the distribution will follow a power-law even though the power-law is not the right model\cite{clauset2009power}. 
+In the goodness-of-fit test, a large $p$ value does not mean the power-law  is the correct distribution for data sets, because there may be other distributions that match the data sets and there is always a possibility that even with small value of $p$ the distribution will follow a power-law \cite{clauset2009power}. 
 We address these concerns next.
 
 \begin{figure}[tb]
@@ -308,14 +308,14 @@ The inset figure shows the CDF plot $p$ value for each torrent. The dash line on
 \subsection{Alternative Distributions}
 Even if we have estimated the power-law parameter properly and the fit is decent, it does not mean the power-law model is good.
 It is always possible that non-power-law models are better than the power-law model.
-Direct comparison of models is a method which can directly compare two distributions againts each other.
-There are several methods for direct comparison such as \textit{likelihood ratio test}, \textit{Bayesian test}, and \textit{Minimum description length}.
-The likelihood ratio test idea is to compute likehood of the data sets under two distributions. 
+Direct comparison of models is a method which can directly compare two distributions against each other.
+There are several methods for direct comparison such as \textit{likelihood ratio test} \cite{vuong1989likelihood}, \textit{Bayesian test}, and \textit{Minimum description length}.
+The likelihood ratio test idea is to compute the likehood of the data sets under two distributions. 
 The one with the higher likehood is the better fit. 
-We use the likelihood ratio test \cite{vuong1989likelihood} to see whether other distributions can give better parameter estimation.
+We use the likelihood ratio test to see whether other distributions can give better parameter estimation.
 
 \subsubsection{Nested Case}
-We now hypothesize that the the smaller family of power-law distributions may give a better fit to our data sets.
+We now hypothesize that the smaller family of power-law distributions may give a better fit to our data sets.
 We only consider a power-law model and a power-law with exponential cut-off model as examples to show model selection.
 Model selection for power-law model and power-law with exponential cut-off is a kind of nested model selection problem.
 In a nested model selection,  there is always the possibility that a bigger family (power-law) can provide as good a fit as the smaller family (power-law with exponential cut-off).
