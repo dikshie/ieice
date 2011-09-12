@@ -320,7 +320,7 @@ We only consider a power-law model and a power-law with exponential cut-off mode
 Model selection for power-law model and power-law with exponential cut-off is a kind of nested model selection problem.
 In a nested model selection,  there is always the possibility that a bigger family (power-law) can provide as good a fit as the smaller family (power-law with exponential cut-off).
 In likelihood ratio test, we must provide the significance value ($\rho$ value).
-Under the likelihood ratio test, we compare the pure power-law model to power-law with exponential cut-off, and the $\rho$ value here helps us establish which of three possibilities occurs: (i) $\rho > 0.1$ means there is no significant difference between the likelihood of the data under the two hypotheses being compared and thus neither is favored over the other; if we already rejected the pure power-law model, then this does not necessarily tell us that we also can reject the alternative model; (ii) $\rho  < 0.1$ and the sign of LR = negative means that there is a significant difference in the likelihoods and that the alternative model is better; if we have already rejected the pure power-law model, then this case simply tells us that the alternative model is better than the bad model we rejected; (iii) if $\rho < 0.1$ and the sign of LR = positive means that there is a significant difference and that the pure power-law model is better than the alternative; if we have already rejected the pure power-law model, then this case tells us the alternative is even worse than the bad model we already rejected.
+Under the likelihood ratio test, we compare the pure power-law model to power-law with exponential cut-off, and the $\rho$ value here helps us establish which of three possibilities occurs: (i) $\rho > 0.1$ means there is no significant difference between the likelihood of the data under the two hypotheses being compared and thus neither is favored over the other; if we already rejected the pure power-law model, then this does not necessarily tell us that we also can reject the alternative model; (ii) $\rho  < 0.1$ and the sign of likelihood ratio (LR) = negative means that there is a significant difference in the likelihoods and that the alternative model is better; if we have already rejected the pure power-law model, then this case simply tells us that the alternative model is better than the bad model we rejected; (iii) if $\rho < 0.1$ and the sign of LR = positive means that there is a significant difference and that the pure power-law model is better than the alternative; if we have already rejected the pure power-law model, then this case tells us the alternative is even worse than the bad model we already rejected.
 
 \begin{figure}[tb]
 \begin{center}
@@ -349,7 +349,7 @@ This figure shows that $52\%$ of the samples lie in area 1, thus an alternative 
 %We do not count LR value in that figure instead at least $\rho < 0.1$ is indication that alternative model gives a better fit rather than pure power-law model.
 
 Now we plot $p$ value vs LR as shown in figure \ref{fig:scatter-pvalue-vs-lr-for-rho-le-01} for $\rho < 0.1$.
-We divide the figure into four areas: area 1, area 2, area 3, and area 4  with green lines as borders to see how sparse the points in each area.
+We divide the figure into four areas: area 1, area 2, area 3, and area 4  with green lines as borders to see how sparse the points are in each area.
 Area 1: LR=positive sign and $p$ value $<0.1$.
 Area 2: LR=positive sign and $p$ value $>0.1$.
 Area 3: LR=negative sign and $p$ value $<0.1$.
@@ -369,11 +369,11 @@ These observations clearly demonstrate that comparing the model to other models 
 
 \subsubsection{Non-Nested Case}
 In non-nested case, we compare power-law distribution with log-normal distribution and exponential distribution.
-We calculate the ratio of two likelihoods distributions or the logarithm of the ratio, which is positive or negative depending on which distribution is better of zero in the event of a tie. 
+We calculate the ratio of two likelihood distributions or the logarithm of the ratio, which is positive or negative depending on which distribution is better of zero in the event of a tie. 
 The positive or negative sign of log-likelihood ratio does not definitively indicate which model is the better fit. 
 Vuong's \cite{vuong1989likelihood}  method gives a $\rho$ value that can tell us whether the observed sign of likelihood ratio is statistically significant.
-If this $\rho$ value is small (less than 0.1) then the sign of log-likehood ratio is reliable indicator of which model is the better fit to the data. 
-If $\rho$ value is large the sign of log-likehood ratio is not reliable and the test does not favor either model over the other. 
+If this $\rho$ value is small (less than 0.1) then the sign of log-likehood ratio is a reliable indicator of which model is the better fit to the data. 
+If the $\rho$ value is large the sign of log-likehood ratio is not reliable and the test does not favor either model over the other. 
 
 \begin{figure}[tb]
 \begin{center}
@@ -390,8 +390,8 @@ If $\rho$ value is large the sign of log-likehood ratio is not reliable and the 
 \label{fig:scatter-lognorm}
 \end{figure}
 
-Figure \ref{fig:cdf-p-lognorm} shows the CDF of $\rho$ value for log-likehood ratio between power-law and log-normal.  
-Only less than $5.5\%$ of $\rho$-value less than $0.1$.   
+Figure \ref{fig:cdf-p-lognorm} shows the CDF of the $\rho$ value for log-likehood ratio between power-law and log-normal.  
+Less than $5.5\%$ of $\rho$-value less than $0.1$.   
 Figure \ref{fig:scatter-lognorm} shows the log-likehood ratio where $\rho$ value less than $0.1$. 
 All log-likehood ratio values have negative sign therefore log-normal is not best fit compare to power-law.
 
