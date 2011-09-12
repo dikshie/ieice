@@ -61,7 +61,7 @@ P2P, Bittorrent, PEX, Power-Law, Exponential Cut-Off
 Among P2P applications, Bittorrent is the most popular. 
 In 2008, P2P transfer dominated Internet traffic and Bittorrent is the most popular P2P protocol.
 P2P traffic is still growing, though recent studies suggest that its growth is slower than that of Internet traffic as a whole  \cite{labovitz2010internet} \cite{index2010forecast}. 
-Even though P2P traffic is declining proportion to the global traffic, in absolute terms P2P traffic itself is slowly growing as shown by the Cisco visual networking index \cite{index2010forecast}. 
+Even though P2P traffic is declining proportion to the global traffic, in absolute terms P2P traffic itself is slowly growing, as shown by the Cisco visual networking index \cite{index2010forecast}. 
 This popularity reflects the robustness and efficiency of the Bittorrent protocol. 
 These characteristics of Bittorrent come from its peer and piece selection strategies to distribute large files efficiently. 
 Bittorrent has now become the de-facto standard to distribute large files. 
@@ -95,14 +95,15 @@ We also performed simulations using the same approach to show the validity of th
 %We show its validity by simulations.
 %To our knowledge, our approach is the first study of the real-world Bittorrent overlay topology.
 
-In addition to demonstrating the validity of our measurement methods, we show that a power-law with exponential cut-off distribution is a better model than a pure power-law distribution in nested case while in non-nested case we found other distributions such as log-normal and exponential can not be fitted. 
-In terms of the clustering property, we show Bittorrent networks is more of a random network than a scale-free network. 
-While these results may contradict earlier findings, our simulations also demonstrated the same phenomenon.
+In addition to demonstrating the validity of our measurement methods, we show that a power-law with exponential cut-off distribution is a better model than a pure power-law distribution in the nested case while in the non-nested case we found other distributions such as log-normal and exponential can not be fitted.
+In the nested case, we compare power-law model as a bigger family with power-law with exponential cut-off as smaller family. 
+In terms of the clustering property, we show that a Bittorrent network is more of a random network than a scale-free network. 
+%%hile these results may contradict earlier findings, our simulations also demonstrated the same phenomenon.
 
-The rest of this paper is organized as follows. We first briefly explain the Bittorrent PEX, followed by the experiment methodology to infer Bittorrent network topologies using PEX. 
+The rest of this paper is organized as follows. We first briefly explain the Bittorrent PEX, followed by the experimental methodology to infer Bittorrent network topologies using PEX. 
 In the analysis, this paper looks into the power-law distribution and an alternative distribution to power-law. 
 This paper also inspects the clustering property.
-Our findings in this work shed light into puzzling, not yet explained, that  Bittorrent networks can be described by power-law with exponential cut-off random networks.
+Our findings in this work shed light into the puzzling, not yet explained, phenomenon that Bittorrent networks can be described by power-law with exponential cut-off random networks.
 This surprising result may contradict earlier findings and our simulations demonstrate this same phenomenon, suggesting that these results are not simply measurement artifacts.
 
 \section{Bittorrent Peer Exchange}\label{background}
