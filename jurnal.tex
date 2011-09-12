@@ -133,15 +133,15 @@ The PEX message contains the set of peers that are currently connected.
 
 It appears that most clients began to introduce PEX in 2007  \cite{client}. 
 However, there is no PEX specification, only a kind of informal understanding among Bittorrent client developers.
-Therefore there are differences, e.g., for some Bittorrent clients derived from rasterbar libtorrent \cite{rasterbar}, the PEX message can only contain a maximum of a hundred IP address and port pairs. 
+Therefore there are differences, e.g., for some Bittorrent clients derived from rasterbar libtorrent \cite{rasterbar}, the PEX message can only contain a maximum of a hundred IPv4 address and port pairs. 
 In other Bittorrent clients, the number of IP address and port pairs is decided based on the size of the PEX message.  
 This implementation difference may affect the ultimate behavior of the network.
 
-\section{Methodology and Experiment Design}\label{methodanddesign}
+\section{Methodology and Experimental Design}\label{methodanddesign}
 The difficulties in inferring topologies in Bittorrent swarms are caused by the Bittorrent mechanism itself. 
 First, although a Bittorrent \textit{peer} may offer some information about its peers, there is no mechanism for peer \textit{discovery}.  
-Second, a peer never sends information about its connections with other peers to the tracker, so we cannot infer overlay topologies by querying or %hosting a tracker.  
-The other ways to infer topologies are simulation or deploying Bittorrent nodes in a real network or in a laboratory, e.g. PlanetLab. Deploying %hundreds to thousands of nodes in a real network or in the laboratory in a manner that accurately reflects the real world is a very challenging task.
+Second, a peer never sends information about its connections with other peers to the tracker, so we cannot infer overlay topologies by querying or hosting a tracker.  
+The other ways to infer topologies are simulation or deploying Bittorrent nodes in a real network or in a laboratory, e.g. PlanetLab. Deploying hundreds to thousands of nodes in a real network or in the laboratory in a manner that accurately reflects the real world is a very challenging task.
 
 %Here we present a simple way to get peer information from a  Bittorrent swarm. 
 We used PEX to collect peer neighbors information  (see Figure \ref{fig:pexworks}) and then we describe the network formed in terms of properties such as node degree and average clustering. 
@@ -150,10 +150,9 @@ In these simulations, we assumed that peer arrivals and departures (churn) follo
 For simplification, we assumed that nodes are not behind a NAT.
 Since we are only interested in the construction of the overlay topology, we argue that our simulations are thorough enough to explain the overlay properties.
 
-Temporal graphs have recently been proposed to study real dynamic graphs, with the intuition that the behaviour of dynamic networks can be more accurately captured by a sequence of snapshots of the network topology as it changes over time.
-In highly dynamics network such as P2P, we are not interested to take instantaneous snapshots. 
-An instantaneous snapshot is taken at an exact time point, thus capturing only a few nodes and links.
-In this paper, we study the network dynamics by continuously taking network snapshots with the duration $\tau$ as time evolves, and show them as a time series.
+Temporal graphs have recently been proposed to study real dynamic graphs, with the intuition that the behaviour of dynamic networks can be more accurately captured by a sequence of snapshots of the network topology as it changes over time \cite{}.
+In highly dynamic network such as P2P, an instantaneous snapshot may capture only a few nodes and links. 
+In this paper, we study the network dynamics by continuously taking network snapshots over a short time interval $\tau$, and show them as a time series.
 A snapshot captures all participating peers and their connections within a particular time interval, from which a graph can be generated.
 The snapshot duration may have minor effects on analyzing slowly changing networks.
 However, in a P2P network, the characteristics of the network topology vary greatly with respect to the time scale of the snapshot duration \cite{stutzbach2008characterizing}.
