@@ -461,8 +461,8 @@ Here we use simulations to compare the overlay topology properties based  on our
 We set the maximum peer set size to 80, the minimum number of neighbors to 20, and the maximum number of outgoing connections to 80. 
 In our simulation, the results are quite easy to get since we are on a controlled system;  we can directly read the  global topology properties from our results. 
 We also have the simulated PEX messages. We compare the global overlay topology properties as the final result from the simulator with the overlay topology that we get from PEX on the same simulator.
-Figure \ref{fig:simulation} shows the $\alpha$ estimate and $p$ value both for the global result and the PEX result from our simulator. 
-It clearly shows that global result and the PEX result from the simulator produce very low $p$ values. 
+Figure \ref{fig:simulation} shows the $\alpha$ estimate eq.\ref{eq:powerlaw} and $p$ eq.\ref{eq:powerlaw} value both for the global result and the PEX result from our simulator. 
+It clearly shows that both the global result and the PEX result from the simulator produce very low $p$ values. 
 We calculate the Spearman correlation for both $\alpha$ values from the global result and the PEX result. 
 The Spearman rank correlation coefficient is a non-parametric correlation measure that assesses the relationship between two variables
 without making any assumptions of a monotonic function.
@@ -478,10 +478,11 @@ The simulator confirms that the PEX method can be used to estimate $\alpha$.}
 \end{figure}
 
 \section{Related Work}\label{relatedworks}
-Bittorrent protocol performance has been explored extensively \cite{guo2005measurements}\cite{legout2006rarest}\cite{pouwelse2004measurement}\cite{tian2007modeling}.  
-The rarest first algorithm was discussed in \cite{legout2006rarest}, average download speed was discussed in \cite{pouwelse2004measurement}, peer arrival and departure process was discussed in \cite{guo2005measurements} and the effect of distributon of the peers on the download job progress was discussed in Y.Tian \textit{et al}. \cite{tian2007modeling}.
-The huge numbers of peers sending P2P download requests to random targets on the Internet and anti-P2P companies injecting bogus peers through PEX were discussed in Z.Li \textit{et al}. \cite{li2010measurement}.
-Higher upload-to-download ratios in  Bittorrent darknet were discussed in C.Zhang \textit{et al}. \cite{zhang2010bittorrent}.
+Bittorrent protocol performance has been explored extensively \cite{guo2005measurements}\cite{legout2006rarest}\cite{pouwelse2004measurement}\cite{tian2007modeling}\cite{li2010measurement}\cite{zhang2010bittorrent}.  
+%The rarest first algorithm was discussed in \cite{legout2006rarest}, average download speed was discussed in \cite{pouwelse2004measurement}, peer arrival and departure process was discussed in \cite{guo2005measurements} and the effect of distributon of the peers on the download job progress was discussed in Y.Tian \textit{et al}. \cite{tian2007modeling}.
+%The huge numbers of peers sending P2P download requests to random targets on the Internet and anti-P2P companies injecting bogus peers through PEX were discussed in Z.Li \textit{et al}. \cite{li2010measurement}.
+%Higher upload-to-download ratios in  Bittorrent darknet were discussed in C.Zhang \textit{et al}. \cite{zhang2010bittorrent}.
+
 Although we know that the topology can have a large impact on performance, to date only a few papers have addressed the issue.
 Urvoy \textit{et al}. \cite{urvoy2007impact} used a discrete event simulator to show that the time to distribute a file in a Bittorrent swarm has a strong relation to the overlay topology.  
 Al-Hamra et al. \cite{al2007understanding}, also using a discrete event simulator, showed that Bittorrent creates a robust overlay topology and the overlay topology formed is not random. 
@@ -490,6 +491,7 @@ Dale \textit{et al}. \cite{dale2008evolution}, in an experimental study on Plane
 They found that a network of peers that unchoked each other is scale-free and the node degree follows a power-law distribution with exponent approximately 2. 
 Dale \textit{et al}. \cite{dale2008evolution} also showed that the path length formed in Bittorrent swarms averages four hops and Bittorrent swarms have low average clustering coefficient.  
 However, little work has been done on determining that topology in the real world. 
+
 Our results agree with previous research \cite{dale2008evolution} in some areas and disagree in others, perhaps for two reasons.
 First, power-law claims must be handled carefully. 
 Many steps are required to confirm the power-law behavior, including alternative model checking, and we must be prepared for disappointment since other models may give a better fit. 
