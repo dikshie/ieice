@@ -490,7 +490,7 @@ They also show that peer exchange (PEX) generates a chain-like overlay with a la
 Dale \textit{et al}. \cite{dale2008evolution}, in an experimental study on PlanetLab, show that in the initial stage of Bittorrent a peer will get a random peer list from the tracker. 
 They found that a network of peers that unchoked each other is scale-free and the node degree follows a power-law distribution with exponent approximately 2. 
 Dale \textit{et al}. \cite{dale2008evolution} also showed that the path length formed in Bittorrent swarms averages four hops and Bittorrent swarms have low average clustering coefficient.  
-However, little work has been done on determining that topology in the real world. 
+However, little work has been done on confirmingthat such controlled experiments correspond to the insitu system. %that topology in the real world. 
 
 Our results agree with previous research \cite{dale2008evolution} in some areas and disagree in others, perhaps for two reasons.
 First, power-law claims must be handled carefully. 
@@ -501,9 +501,11 @@ This real-world measurement will reflect different types of clients connected to
 %Each client might run on a different operating system, and of course clients are spread geographically. 
 We also face difficult-to-characterize network realities such as NAT and firewalls. 
 Our ability to reproduce key aspects of the topology dynamics suggests that these factors have only limited impact on the topology, somewhat to our surprise.
+
+
 \section{Conclusion and Future Work}\label{conclude}
 We have investigated the properties of Bittorrent overlay topologies from the point of view of the peer exchange protocol using real swarms from a real and operational Bittorrent tracker on the Internet. 
-We obtain instantaneous snapshots of the active topology of the Bittorrent network over a month.
+We continuously taking snapshots over a short time interval of the active topology of the Bittorrent network over a month.
 We cope with the dynamics of the overlay by sampling peer properties. 
 Our results agree in some particulars and disagree in others with prior published work on isolated testbed experiments on Bittorrent, suggesting that more work is required to fully model the behavior of real-world Bittorrent networks.
 Unlike \cite{dale2008evolution}, we find that the node degree of the graph formed in a Bittorrent swarm can be described by a power law with exponential cut-off, and the observation of a low clustering coefficient implies Bittorrent networks are close to random networks.
