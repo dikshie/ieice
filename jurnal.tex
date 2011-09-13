@@ -432,7 +432,8 @@ connected to node C, improving the robustness of the network against the failure
 The clustering around a vertex $i$ is quantified by the clustering coefficient $C_i$, defined as the number of triangles in which vertex $i$ participates normalized by the maximum possible number of such triangles,
 \begin{equation}
 c_i = \frac{2t_i}{k_i(k_i - 1} 
-\end{equation} 
+\end{equation}
+where $t_i$ denotes the number of triangles around $i$ and $k_i$ denotes vertex degree. 
 and for the whole graph the clustering coefficient is
 \begin{equation}
 C = \frac{1}{n} \sum_{v \in G} c_v.
