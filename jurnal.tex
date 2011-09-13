@@ -14,7 +14,11 @@
 \usepackage{url}
 \usepackage{cite}
 \usepackage{epsfig}
+\usepackage{float}
 \usepackage[caption=false,font=footnotesize]{subfig}
+\captionsetup[subfigure]{labelformat=parens, justification=raggedright, format=hang, margin=3pt, parskip=0pt,
+		hangindent=0pt, indention=0pt, singlelinecheck=false}
+
 
 \setcounter{page}{1}
 %\breakauthorline{}% breaks lines after the n-th author
@@ -323,23 +327,39 @@ In a nested model selection,  there is always the possibility that a bigger fami
 In likelihood ratio test, we must provide the significance value ($\rho$ value).
 Under the likelihood ratio test, we compare the pure power-law model to power-law with exponential cut-off, and the $\rho$ value here helps us establish which of three possibilities occurs: (i) $\rho > 0.1$ means there is no significant difference between the likelihood of the data under the two hypotheses being compared and thus neither is favored over the other; if we already rejected the pure power-law model, then this does not necessarily tell us that we also can reject the alternative model; (ii) $\rho  < 0.1$ and the sign of likelihood ratio (LR) = negative means that there is a significant difference in the likelihoods and that the alternative model is better; if we have already rejected the pure power-law model, then this case simply tells us that the alternative model is better than the bad model we rejected; (iii) if $\rho < 0.1$ and the sign of LR = positive means that there is a significant difference and that the pure power-law model is better than the alternative; if we have already rejected the pure power-law model, then this case tells us the alternative is even worse than the bad model we already rejected.
 
-\begin{figure}[tb]
-\begin{center}
-\includegraphics[scale=0.6]{graphs/new/gabung-korelasi-p-rho.eps}
-\end{center}
-\caption{Scatter plot of $p$ value vs $\rho$ value. 
-        Points in area 1 are the samples where a power-law with exponential cut-off is a more plausible model than a power-law.
-        In area 3, a pure power-law may be more plausible than power-law with exponential cut-off, while in area 2 the results are ambiguous.} 
-\label{fig:scatter-pvalue-vs-rho}
-\end{figure}
+%\begin{figure}[tb]
+%\begin{center}
+%\includegraphics[scale=0.6]{graphs/new/gabung-korelasi-p-rho.eps}
+%\end{center}
+%\caption{Scatter plot of $p$ value vs $\rho$ value. 
+%        Points in area 1 are the samples where a power-law with exponential cut-off is a more plausible model than a power-law.
+%        In area 3, a pure power-law may be more plausible than power-law with exponential cut-off, while in area 2 the results are ambiguous.} 
+%\label{fig:scatter-pvalue-vs-rho}
+%\end{figure}
+%
+%\begin{figure}[tb]
+%\begin{center}
+%\includegraphics[scale=0.6]{graphs/new/gabung-korelasi-p-rho-4region.eps}
+%\end{center}
+%\caption{Scatter plot of $p$ value vs log-likelihood ratio (LR) for $\rho < 0.1$. In this figure we define area 1: LR=positive and $p$ value $<0.1$, area 2: LR=positive and $p$ value $>0.1$, area 3: LR=negative and $p$ value $<0.1$, area 4: LR=negative and $p$ value $>0.1$. There are no points in area 1 and area 2, meaning that the power-law model is not a better model for all data; instead $42\%$ of the points lie in area 3 and $58\%$ of the points lie in area 4.} 
+%\label{fig:scatter-pvalue-vs-lr-for-rho-le-01}
+%\end{figure}
 
-\begin{figure}[tb]
+\begin{figure*}[!t]
 \begin{center}
-\includegraphics[scale=0.6]{graphs/new/gabung-korelasi-p-rho-4region.eps}
+\subfloat[Scatter plot of $p$ value vs $\rho$ value. 
+        Points in area 1 are the samples where a power-law with exponential cut-off is a more plausible model than a power-law.
+        In area 3, a pure power-law may be more plausible than power-law with exponential cut-off, while in area 2 the results are ambiguous.]{
+{\includegraphics[width=3.1in]{graphs/new/gabung-korelasi-p-rho.eps}}
+{\label{fig:scatter-pvalue-vs-rho}}}
+\subfloat[Scatter plot of $p$ value vs log-likelihood ratio (LR) for $\rho < 0.1$. In this figure we define area 1: LR=positive and $p$ value $<0.1$, area 2: LR=positive and $p$ value $>0.1$, area 3: LR=negative and $p$ value $<0.1$, area 4: LR=negative and $p$ value $>0.1$. There are no points in area 1 and area 2, meaning that the power-law model is not a better model for all data; instead $42\%$ of the points lie in area 3 and $58\%$ of the points lie in area 4.]{
+{\includegraphics[width=3.1in]{graphs/new/gabung-korelasi-p-rho-4region.eps}}
+{\label{fig:scatter-pvalue-vs-lr-for-rho-le-01}}}
+\caption{Scatter plot $p$ values vs log-likelihood ratio (LR)}
+\label{fig:scatter-vs-lr}
 \end{center}
-\caption{Scatter plot of $p$ value vs log-likelihood ratio (LR) for $\rho < 0.1$. In this figure we define area 1: LR=positive and $p$ value $<0.1$, area 2: LR=positive and $p$ value $>0.1$, area 3: LR=negative and $p$ value $<0.1$, area 4: LR=negative and $p$ value $>0.1$. There are no points in area 1 and area 2, meaning that the power-law model is not a better model for all data; instead $42\%$ of the points lie in area 3 and $58\%$ of the points lie in area 4.} 
-\label{fig:scatter-pvalue-vs-lr-for-rho-le-01}
-\end{figure}
+\end{figure*}
+
 
 Figure \ref{fig:scatter-pvalue-vs-rho} shows a $p$ value vs $\rho$ value scatter plot, divided into three areas.
 Area 1: $\rho$ value $<0.1$ and $p$ value $>0$. 
@@ -376,40 +396,42 @@ Vuong's \cite{vuong1989likelihood}  method gives a $\rho$ value that can tell us
 If this $\rho$ value is small (less than 0.1) then the sign of log-likehood ratio is a reliable indicator of which model is the better fit to the data. 
 If the $\rho$ value is large the sign of log-likehood ratio is not reliable and the test does not favor either model over the other. 
 
-\begin{figure}[tb]
-\begin{center}
-\includegraphics[scale=0.6]{graphs/non-nested/aggregate-p-cdf-non-nested-lognorm.eps}
-\end{center}
-\caption{CDF plot of $\rho$ value of log-likehood ratio test for power-law vs log-normal. Only $5.5\%$ $\rho$ values are less than $0.1$.}
-\label{fig:cdf-p-lognorm}
-\end{figure}
-\begin{figure}[tb]
-\begin{center}
-\includegraphics[scale=0.6]{graphs/non-nested/lr-p-lognorm.eps}
-\end{center}
-\caption{Scatter plot of log-likehood ratio for power-law vs log-normal. All of log-likelihood ratio values sign are negative.}
-\label{fig:scatter-lognorm}
-\end{figure}
+%\begin{figure}[tb]
+%\begin{center}
+%\includegraphics[scale=0.6]{graphs/non-nested/aggregate-p-cdf-non-nested-lognorm.eps}
+%\end{center}
+%\caption{CDF plot of $\rho$ value of log-likehood ratio test for power-law vs log-normal. Only $5.5\%$ $\rho$ values are less than $0.1$.}
+%\label{fig:cdf-p-lognorm}
+%\end{figure}
+%\begin{figure}[tb]
+%\begin{center}
+%\includegraphics[scale=0.6]{graphs/non-nested/lr-p-lognorm.eps}
+%\end{center}
+%\caption{Scatter plot of log-likehood ratio for power-law vs log-normal. All of log-likelihood ratio values sign are negative.}
+%\label{fig:scatter-lognorm}
+%\end{figure}
+
+
 
 Figure \ref{fig:cdf-p-lognorm} shows the CDF of the $\rho$ value for log-likehood ratio between power-law and log-normal.  
 Less than $5.5\%$ of the $\rho$-values are less than $0.1$.   
 Figure \ref{fig:scatter-lognorm} shows the log-likehood ratio where the $\rho$ value less than $0.1$. 
 All log-likehood ratio values have negative sign therefore log-normal is not a better than power-law.
 
-\begin{figure}[tb]
-\begin{center}
-\includegraphics[scale=0.6]{graphs/non-nested/aggregate-p-cdf-non-nestedi-exp.eps}
-\end{center}
-\caption{CDF plot of $\rho$ value of log-likehood ratio test for power-law vs exponential. Only $13\%$ $\rho$ values are less than $0.1$.}
-\label{fig:cdf-p-exp}
-\end{figure}
-\begin{figure}[tb]
-\begin{center}
-\includegraphics[scale=0.6]{graphs/non-nested/lr-pi-exp.eps}
-\end{center}
-\caption{Scatter plot of log-likehood ratio for power-law vs exponential. All log-likelihood ratio values sign are negative.}
-\label{fig:scatter-exp}
-\end{figure}
+%\begin{figure}
+%\begin{center}
+%\includegraphics[scale=0.6]{graphs/non-nested/aggregate-p-cdf-non-nestedi-exp.eps}
+%\end{center}
+%\caption{CDF plot of $\rho$ value of log-likehood ratio test for power-law vs exponential. Only $13\%$ $\rho$ values are less than $0.1$.}
+%\label{fig:cdf-p-exp}
+%\end{figure}
+%\begin{figure}[tb]
+%\begin{center}
+%\includegraphics[scale=0.6]{graphs/non-nested/lr-pi-exp.eps}
+%\end{center}
+%\caption{Scatter plot of log-likehood ratio for power-law vs exponential. All log-likelihood ratio values sign are negative.}
+%\label{fig:scatter-exp}
+%\end{figure}
 
 Figure \ref{fig:cdf-p-exp} shows the CDF of the $\rho$ values for log-likehood ratio between power-law and exponential. 
 Less than $13\%$ of the $\rho$ values are less than $0.1$.   
