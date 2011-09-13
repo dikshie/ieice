@@ -116,7 +116,7 @@ After the metainfo file is read, a Bittorrent application contacts a tracker, wh
 
 \begin{figure}[tb]
 \begin{center}
-\includegraphics[scale=0.3]{graphs/pex_2.eps}
+\includegraphics[scale=0.32]{graphs/pex_2.eps}
 \end{center}
 \caption{Simplified view of our approach. Left: At time t=1, the actor gets a PEX message from peer A and
 learns that peer A is connected to peer B and C. At t=2, the actor gets  PEX messages from peers C and A. The actor
@@ -289,7 +289,7 @@ We address these concerns next.
 
 \begin{figure}[tb]
 \begin{center}
-\includegraphics[scale=0.6]{graphs/output.eps}
+\includegraphics[scale=0.6]{graphs/output_2.eps}
 \end{center}
 \caption{Node degree fit for snapshots of two torrents, with three fits shown in log scale. Torrent1: for $x_{min}=1$ , $\alpha = 2.9$, and $p=0.01$. For $x_{min}=2$ , $\alpha = 2.11$, and $p = 0.01$. Torrent3: for $x_{min}=1$, $\alpha = 2.1$, and $p = 0.1$. }
 \label{fig:fitting}
@@ -433,10 +433,10 @@ The clustering around a vertex $i$ is quantified by the clustering coefficient $
 \begin{equation}
 c_i = \frac{2t_i}{k_i(k_i - 1)} 
 \end{equation}
-where $t_i$ denotes the number of triangles around $i$ and $k_i$ denotes vertex degree. 
-and for the whole graph the clustering coefficient is
+where $t_i$ denotes the number of triangles around $i$ and $k_i$ denotes vertex degree.
+For the whole graph, the clustering coefficient is
 \begin{equation}
-C = \frac{1}{n} \sum_{v \in G} c_v.
+C = \frac{1}{n} \sum_{i \in G} c_i.
 \end{equation}
 A larger clustering coefficient represents more clustering at nodes in the graph, therefore the clustering coefficient expresses the local robustness of the network.
 The distinction between a random and a non-random graph can be measured by clustering-coefficient metrics \cite{watts1998collective}.
