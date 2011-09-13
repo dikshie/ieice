@@ -424,12 +424,14 @@ In that case, it is important to look at physical motivation or theoretical fact
 
 \subsection{Clustering Coefficient}\label{clusteringcoef}
 
-Clustering describes the topology robustness. 
+Networks show a tendency for link formation between neighboring vertices.
+This tendency is called \texit{clustering}.
+Clustering reflects the topology robustness. 
 It has practical implications; for example, if node A is connected to node B and node B to node C, then there is a probability that node A will also be
 connected to node C, improving the robustness of the network against the failure of a connection.  
-Clustering is quantified by a node clustering coefficient as follows:
+The clustering around a vertex $i$ is quantified by the clustering coefficient $C_i$, defined as the number of triangles in which vertex $i$ participates normalized by the maximum possible number of such triangles,
 \begin{equation}
-c_v = \frac{2T(v)}{deg(v) (deg(v)-1))}
+c_i = \frac{2t_i}{k_i(k_i - 1} 
 \end{equation} 
 and for the whole graph the clustering coefficient is
 \begin{equation}
