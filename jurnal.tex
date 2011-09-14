@@ -304,7 +304,6 @@ We address these concerns next.
 
 \begin{figure}[tb]
 \begin{center}
-%\epsfig{file=netscicom-graphs/20-data/cdf-total-p.eps, height=2in, width=3.2in}
 \includegraphics[scale=0.6]{graphs/new/aggregate-p-cdf.eps}
 \end{center}
 \caption{CDF plot of $p$ value of K-S statistics. It shows that across our entire set of Bittorrent snapshots, around $45\%$ of the time a power-law distribution is not a good fit for the data. 
@@ -321,33 +320,7 @@ The likelihood ratio test idea is to compute the likehood of the data sets under
 The one with the higher likehood is the better fit. 
 We use the likelihood ratio test to see whether other distributions can give better parameter estimation.
 
-\subsubsection{Nested Case}
-We now hypothesize that the smaller family of power-law distributions may give a better fit to our data sets.
-We only consider a power-law model and a power-law with exponential cut-off model as examples to show model selection.
-Model selection for power-law model and power-law with exponential cut-off is a kind of nested model selection problem.
-In a nested model selection,  there is always the possibility that a bigger family (power-law) can provide as good a fit as the smaller family (power-law with exponential cut-off).
-In likelihood ratio test, we must provide the significance value ($\rho$ value).
-Under the likelihood ratio test, we compare the pure power-law model to power-law with exponential cut-off, and the $\rho$ value here helps us establish which of three possibilities occurs: (i) $\rho > 0.1$ means there is no significant difference between the likelihood of the data under the two hypotheses being compared and thus neither is favored over the other; if we already rejected the pure power-law model, then this does not necessarily tell us that we also can reject the alternative model; (ii) $\rho  < 0.1$ and the sign of likelihood ratio (LR) = negative means that there is a significant difference in the likelihoods and that the alternative model is better; if we have already rejected the pure power-law model, then this case simply tells us that the alternative model is better than the bad model we rejected; (iii) if $\rho < 0.1$ and the sign of LR = positive means that there is a significant difference and that the pure power-law model is better than the alternative; if we have already rejected the pure power-law model, then this case tells us the alternative is even worse than the bad model we already rejected.
-
-%\begin{figure}[tb]
-%\begin{center}
-%\includegraphics[scale=0.6]{graphs/new/gabung-korelasi-p-rho.eps}
-%\end{center}
-%\caption{Scatter plot of $p$ value vs $\rho$ value. 
-%        Points in area 1 are the samples where a power-law with exponential cut-off is a more plausible model than a power-law.
-%        In area 3, a pure power-law may be more plausible than power-law with exponential cut-off, while in area 2 the results are ambiguous.} 
-%\label{fig:scatter-pvalue-vs-rho}
-%\end{figure}
-%
-%\begin{figure}[tb]
-%\begin{center}
-%\includegraphics[scale=0.6]{graphs/new/gabung-korelasi-p-rho-4region.eps}
-%\end{center}
-%\caption{Scatter plot of $p$ value vs log-likelihood ratio (LR) for $\rho < 0.1$. In this figure we define area 1: LR=positive and $p$ value $<0.1$, area 2: LR=positive and $p$ value $>0.1$, area 3: LR=negative and $p$ value $<0.1$, area 4: LR=negative and $p$ value $>0.1$. There are no points in area 1 and area 2, meaning that the power-law model is not a better model for all data; instead $42\%$ of the points lie in area 3 and $58\%$ of the points lie in area 4.} 
-%\label{fig:scatter-pvalue-vs-lr-for-rho-le-01}
-%\end{figure}
-
-\begin{figure*}[!t]
+\begin{figure*}[!th]
 \begin{center}
 \subfloat[Scatter plot of $p$ value vs $\rho$ value. 
         Points in area 1 ($\rho$ value $<0.1$ and $p$ value $>0$) are the samples where a power-law with exponential cut-off is a more plausible model than a power-law.
@@ -362,6 +335,13 @@ Under the likelihood ratio test, we compare the pure power-law model to power-la
 \end{center}
 \end{figure*}
 
+\subsubsection{Nested Case}
+We now hypothesize that the smaller family of power-law distributions may give a better fit to our data sets.
+We only consider a power-law model and a power-law with exponential cut-off model as examples to show model selection.
+Model selection for power-law model and power-law with exponential cut-off is a kind of nested model selection problem.
+In a nested model selection,  there is always the possibility that a bigger family (power-law) can provide as good a fit as the smaller family (power-law with exponential cut-off).
+In likelihood ratio test, we must provide the significance value ($\rho$ value).
+Under the likelihood ratio test, we compare the pure power-law model to power-law with exponential cut-off, and the $\rho$ value here helps us establish which of three possibilities occurs: (i) $\rho > 0.1$ means there is no significant difference between the likelihood of the data under the two hypotheses being compared and thus neither is favored over the other; if we already rejected the pure power-law model, then this does not necessarily tell us that we also can reject the alternative model; (ii) $\rho  < 0.1$ and the sign of likelihood ratio (LR) = negative means that there is a significant difference in the likelihoods and that the alternative model is better; if we have already rejected the pure power-law model, then this case simply tells us that the alternative model is better than the bad model we rejected; (iii) if $\rho < 0.1$ and the sign of LR = positive means that there is a significant difference and that the pure power-law model is better than the alternative; if we have already rejected the pure power-law model, then this case tells us the alternative is even worse than the bad model we already rejected.
 
 Figure \ref{fig:scatter-pvalue-vs-rho} shows a $p$ value vs $\rho$ value scatter plot, divided into three areas.
 Area 1: $\rho$ value $<0.1$ and $p$ value $>0$. 
