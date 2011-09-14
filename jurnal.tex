@@ -350,12 +350,12 @@ Under the likelihood ratio test, we compare the pure power-law model to power-la
 \begin{figure*}[!t]
 \begin{center}
 \subfloat[Scatter plot of $p$ value vs $\rho$ value. 
-        Points in area 1 are the samples where a power-law with exponential cut-off is a more plausible model than a power-law.
+        Points in area 1 ($\rho$ value $<0.1$ and $p$ value $>0$) are the samples where a power-law with exponential cut-off is a more plausible model than a power-law.
         In area 3, a pure power-law may be more plausible than power-law with exponential cut-off, while in area 2 the results are ambiguous.]{
-{\includegraphics[width=3.1in]{graphs/new/gabung-korelasi-p-rho.eps}}
+{\includegraphics[width=2.5in]{graphs/new/gabung-korelasi-p-rho.eps}}
 {\label{fig:scatter-pvalue-vs-rho}}}
-\subfloat[Scatter plot of $p$ value vs log-likelihood ratio (LR) for $\rho < 0.1$. In this figure we define area 1: LR=positive and $p$ value $<0.1$, area 2: LR=positive and $p$ value $>0.1$, area 3: LR=negative and $p$ value $<0.1$, area 4: LR=negative and $p$ value $>0.1$. There are no points in area 1 and area 2, meaning that the power-law model is not a better model for all data; instead $42\%$ of the points lie in area 3 and $58\%$ of the points lie in area 4.]{
-{\includegraphics[width=3.1in]{graphs/new/gabung-korelasi-p-rho-4region.eps}}
+\subfloat[Scatter plot of $p$ value vs log-likelihood ratio (LR) for $\rho < 0.1$. In this figure we define area 1: $LR>0$ and $p$ value $<0.1$, area 2: $LR>0$ and $p$ value $>0.1$, area 3: $LR<0$ and $p$ value $<0.1$, area 4: $LR<0$ and $p$ value $>0.1$. There are no points in area 1 and area 2, meaning that the power-law model is not a better model for all data; instead $42\%$ of the points lie in area 3 and $58\%$ of the points lie in area 4.]{
+{\includegraphics[width=2.5in]{graphs/new/gabung-korelasi-p-rho-4region.eps}}
 {\label{fig:scatter-pvalue-vs-lr-for-rho-le-01}}}
 \caption{Scatter plot $p$ values vs log-likelihood ratio (LR)}
 \label{fig:scatter-vs-lr}
@@ -415,11 +415,11 @@ If the $\rho$ value is large the sign of log-likehood ratio is not reliable and 
 
 \begin{figure*}[!t]
 \begin{center}
-\subfloat[CDF plot of $\rho$ value of log-likehood ratio test for power-law vs log-normal. Only $13\%$ $\rho$ values are less than $0.1$ therefore log-likelihood ratio sign is reliable only for $13\%$ of data points and for the rest, we can not take conclusive answer since log-likelihood ratio sign is not reliable indicator.]{
-{\includegraphics[width=3.1in]{graphs/non-nested/aggregate-p-cdf-non-nested-lognorm.eps}}
+\subfloat[CDF plot of $\rho$ value of log-likehood ratio test for power-law vs log-normal. Only $13\%$ $\rho$ values are less than $0.1$ therefore log-likelihood ratio sign is reliable only for $13\%$.]{
+{\includegraphics[width=2.5in]{graphs/non-nested/aggregate-p-cdf-non-nested-lognorm.eps}}
 {\label{fig:cdf-p-lognorm}}}
 \subfloat[Scatter plot of log-likehood ratio for power-law vs log-normal for $\rho$ values less than $0.1$. All of log-likelihood ratio values sign are negative therefore log-normal is not a better fit.]{
-{\includegraphics[width=3.1in]{graphs/non-nested/lr-p-lognorm.eps}}
+{\includegraphics[width=2.5in]{graphs/non-nested/lr-p-lognorm.eps}}
 {\label{fig:scatter-lognorm}}}
 \caption{CDF plot of $\rho$ value  and Scatter plot $p$ values vs log-likelihood ratio (LR) for likelihood test for power-law vs log-normal.}
 \label{fig:non-nested-lognorm}
@@ -449,11 +449,11 @@ All log-likehood ratio values have negative sign therefore log-normal is not a b
 
 \begin{figure*}[!t]
 \begin{center}
-\subfloat[CDF plot of $\rho$ value of log-likehood ratio test for power-law vs exponential. Only $5.5\%$ $\rho$ values are less than $0.1$ therefore log-likelihood ratio sign is reliable only for $5.5\%$ of data points and for the rest, we can not take conclusive answer since log-likelihood ratio sign is not reliable indicator.]{
-{\includegraphics[width=3.1in]{graphs/non-nested/aggregate-p-cdf-non-nestedi-exp.eps}}
+\subfloat[CDF plot of $\rho$ value of log-likehood ratio test for power-law vs exponential. Only $5.5\%$ $\rho$ values are less than $0.1$ therefore log-likelihood ratio sign is reliable only for $5.5\%$.]{
+{\includegraphics[width=2.5in]{graphs/non-nested/aggregate-p-cdf-non-nestedi-exp.eps}}
 {\label{fig:cdf-p-exp}}}
 \subfloat[Scatter plot of log-likehood ratio for power-law vs exponential for $\rho$ values less than $0.1$. All of log-likelihood ratio values sign are negative therefore exponential is not a better fit.]{
-{\includegraphics[width=3.1in]{graphs/non-nested/lr-pi-exp.eps}}
+{\includegraphics[width=2.5in]{graphs/non-nested/lr-pi-exp.eps}}
 {\label{fig:scatter-exp}}}
 \caption{CDF plot of $\rho$ value  and Scatter plot $p$ values vs log-likelihood ratio (LR) for likelihood test for power-law vs exponential.}
 \label{fig:non-nested-exp}
@@ -500,7 +500,7 @@ Considering only the low clustering coefficient, the Bittorrent topologies seem 
 
 \begin{figure}[tb]
 \begin{center}
-\includegraphics[scale=0.6]{graphs/new/cdf-clustering.eps}
+\includegraphics[scale=0.65]{graphs/new/cdf-clustering.eps}
 \end{center}
 \caption{CDF plot of the clustering coefficient for each torrent. It is clearly show that Bittorrent networks have low clustering coefficient.} 
 \label{fig:cdf-clustering}
@@ -520,7 +520,7 @@ The Spearman rank correlation test gives $0.38 \leq \rho \leq 0.5$, which we con
 
 \begin{figure}[tb]
 \begin{center}
-\includegraphics[scale=0.6]{netscicom-graphs/simula.eps}
+\includegraphics[scale=0.65]{netscicom-graphs/simula.eps}
 \end{center}
 \caption{$\alpha$ estimation and $p$ value for global topology and topology inferred from PEX where both done in our simulator.
 The simulator confirms that the PEX method can be used to estimate $\alpha$.} 
