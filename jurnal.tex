@@ -15,10 +15,9 @@
 \usepackage{cite}
 \usepackage{epsfig}
 \usepackage{float}
-\usepackage[caption=false,font=footnotesize]{subfig}
-\captionsetup[subfigure]{labelformat=parens, justification=raggedright, format=hang, margin=3pt, parskip=0pt,
-		hangindent=0pt, indention=0pt, singlelinecheck=false}
-
+\usepackage{caption}
+%\captionsetup[subfigure]{labelformat=parens, format=hang, margin=0pt, parskip=0pt,
+%		hangindent=0pt, indention=0pt, singlelinecheck=false, textfont=footnotesize}
 
 \setcounter{page}{1}
 %\breakauthorline{}% breaks lines after the n-th author
@@ -31,8 +30,8 @@
 %\title[title for header]{title}
 \titlenote{A short version of this paper was presented at IEEE Netscicom 2011}
 \authorlist{% fill arguments of \authorentry, otherwise error will be caused. 
- \authorentry[dikshie@sfc.wide.ad.jp]{Mohamad Dikshie Fauzie}{n}{labelA}
- \authorentry{Achmad Husni Thamrin}{n}{labelA}
+ \authorentry[dikshie@sfc.wide.ad.jp]{{Mohamad Dikshie} Fauzie}{n}{labelA}
+ \authorentry{{Achmad Husni} Thamrin}{n}{labelA}
  \authorentry{Rodney Van Meter}{n}{labelB}
  \authorentry{Jun Murai}{m}{labelB}
 }
@@ -60,15 +59,18 @@ We also found that the average clustering coefficient is very low, supporting th
 Bittorrent swarms are far more dynamic than has been recognized previously, potentially impacting attempts to optimize the performance of the system as well as the accuracy of simulations and analyses.
 \end{summary}
 \begin{keywords}
-P2P, Bittorrent, PEX, Power-Law, Exponential Cut-Off
+P2P, Bittorrent, PEX, Power-Law, Network Topology 
 \end{keywords}
 
 
 \section{Introduction}
-Among P2P applications, Bittorrent is the most popular. 
-In 2008, P2P transfer dominated Internet traffic and Bittorrent is the most popular P2P protocol.
-P2P traffic is still growing, though recent studies suggest that its growth is slower than that of Internet traffic as a whole  \cite{labovitz2010internet} \cite{index2010forecast}. 
-Even though P2P traffic is declining proportion to the global traffic, in absolute terms P2P traffic itself is slowly growing, as shown by the Cisco visual networking index \cite{index2010forecast}. 
+%Among P2P applications, Bittorrent is the most popular. 
+%In 2008, P2P transfer dominated Internet traffic and Bittorrent is the most popular P2P protocol.
+%P2P traffic is still growing, though recent studies suggest that its growth is slower than that of Internet traffic as a whole  \cite{labovitz2010internet} \cite{index2010forecast}. 
+%Even though P2P traffic is declining proportion to the global traffic, in absolute terms P2P traffic itself is slowly growing, as shown by the Cisco visual networking index \cite{index2010forecast}. 
+Bitorrent is the most popular P2P protocol.
+P2P traffic dominated the Internet in 2008 is still growing even though recent studies suggest that its growth is slower than that, and its proportion to the Internet traffic is declining \cite{labovitz2010internet} \cite{index2010forecast}.
+
 This popularity reflects the robustness and efficiency of the Bittorrent protocol. 
 These characteristics of Bittorrent come from its peer and piece selection strategies to distribute large files efficiently. 
 Bittorrent has now become the de-facto standard to distribute large files. 
@@ -103,7 +105,7 @@ We also performed simulations using the same approach to show the validity of th
 %To our knowledge, our approach is the first study of the real-world Bittorrent overlay topology.
 
 In addition to demonstrating the validity of our measurement methods, we show that a power-law with exponential cut-off distribution is a better model than a pure power-law distribution in the nested case while in the non-nested case we found other distributions such as log-normal and exponential can not be fitted.
-In the nested case, we compare power-law model as a bigger family with power-law with exponential cut-off as smaller family, while in non-nested case, we campore power-law model with different distributions such as exponential or log-normal.
+In the nested case, we compare power-law model as a bigger family with power-law with exponential cut-off as smaller family, while in the non-nested case, we compare power-law model with different distributions such as exponential or log-normal.
 In terms of the clustering property, we show that a Bittorrent network is more of a random network than a scale-free network. 
 %%hile these results may contradict earlier findings, our simulations also demonstrated the same phenomenon.
 
@@ -129,7 +131,7 @@ After the metainfo file is read, a Bittorrent application contacts a tracker, wh
 learns that peer A is connected to peer B and C. At t=2, the actor gets  PEX messages from peers C and A. The actor
 learns that now peer A is connected to peer D. Thus the actor knows the properties of peer A at t=1 and t=2.} 
 \label{fig:pexworks}
-\vspace{-6mm}
+\vspace{-2mm}
 \end{figure}
 
 PEX is a mechanism introduced in Bittorrent to discover other peers in the swarm, in which two connected peers exchange messages containing a set of connected peers.  
@@ -142,13 +144,13 @@ It appears that most clients began to introduce PEX in 2007  \cite{client}.
 However, there is no PEX specification, only a kind of informal understanding among Bittorrent client developers.
 Therefore there are differences, e.g., for some Bittorrent clients derived from rasterbar libtorrent \cite{rasterbar}, the PEX message can only contain a maximum of a hundred IPv4 address and port pairs. 
 In other Bittorrent clients, the number of IP address and port pairs is decided based on the size of the PEX message.  
-This implementation difference may affect the ultimate behavior of the network.
+PEX implementation differences may affect the ultimate behavior of the network.
 
 \section{Methodology and Experimental Design}\label{methodanddesign}
 The difficulties in inferring topologies in Bittorrent swarms are caused by the Bittorrent mechanism itself. 
 First, although a Bittorrent \textit{peer} may offer some information about its peers, there is no mechanism for peer \textit{discovery}.  
 Second, a peer never sends information about its connections with other peers to the tracker, so we cannot infer overlay topologies by querying or hosting a tracker.  
-Our other options inferring topologies are simulation or deploying Bittorrent nodes in a real network or in a laboratory, e.g. PlanetLab. Deploying hundreds to thousands of nodes in a real network or in the laboratory in a manner that accurately reflects the real world is a very challenging task.
+Our other options inferring topologies are simulation or deploying Bittorrent nodes in a real network or in a laboratory, e.g., PlanetLab. Deploying hundreds to thousands of nodes in a real network or in the laboratory in a manner that accurately reflects the real world is a very challenging task.
 
 %Here we present a simple way to get peer information from a  Bittorrent swarm. 
 We used PEX to collect peer neighbors information  (see Fig.\ref{fig:pexworks}) and then we describe the network formed in terms of properties such as node degree and average clustering. 
@@ -205,7 +207,7 @@ This implies that our data set is independent of measurement location and the nu
 
 \begin{figure}[!t]
 \begin{center}
-\includegraphics[scale=0.6]{graphs/new/cdf-num.eps}
+\includegraphics[scale=0.5]{graphs/new/cdf-num.eps}
 \end{center}
 \caption{CDF plot of number of peers for the 50 swarms during measurement with 104 to 1400 time samples for each torrent. This clearly shows high variation in the number of peers in every swarm, due to churn in Bittorrent networks.} 
 \label{fig:num_peers}
@@ -251,22 +253,24 @@ The most common way to fit empirical data to a power-law is to take the logarith
 We use maximum likelihood to estimate the scaling parameter $\alpha$ of power-law \cite{clauset2009power}.  
 This approach is accurate to estimate the scaling parameter in the limit of large sample size. 
 For the detailed calculations of both $x_{min}$ and $\alpha$, see Appendix B in \cite{clauset2009power}.
+We found in the literature contradictory results of \textit{clustering},
+Furthermore, we also study the clustering in Bittorrent swarms.
 
 %--------------- EXPERIMENT RESULT -------------------------
 \section{Experimental Results}\label{result}
-Our time samples for the size of swarms are plotted as the CDF of the number of peers for every swarm during measurementi, as shown in Fig.\ref{fig:num_peers}. 
+Our time samples for the size of swarms are plotted as the CDF of the number of peers for every swarm during measurementi, as shown in Fig. \ref{fig:num_peers}. 
 It is clear that the number of peers has  high variability due to churn in Bittorrent networks. 
 %The number of peers will have a relationship with the clustering coefficient, which will be explained in section \ref{clusteringcoef}.
 
 \subsection{Power-law Distribution of Node Degree}
 The degree of a node in a network is the number of edges connected to that node. 
 If we define $p_k$ as the  fraction of nodes in the network that have degree $k$, then $p_k$ is the probability that a node chosen uniformly at random has degree $k$. 
-If we plot a histogram of $p_k$ then this histogram is the degree distribution for  the network. 
-Instead of a histogram plot,  we show node degree data in cumulative distribution  function (CDF) plot which can be expressed as
+%If we plot a histogram of $p_k$ then this histogram is the degree distribution for  the network. 
+Instead of a histogram plot,  we show node degree data in cumulative distribution function (CDF) plot which can be expressed as
 \begin{equation}
 P_k = \sum_{k'=k}^{\infty} p_{k'}.
 \end{equation}
-The CDF plot has advantages over the node degree histogram because it does not suffer from binning problems.  %\cite{newman2003structure}.
+%The CDF plot has advantages over the node degree histogram because it does not suffer from binning problems.  %\cite{newman2003structure}.
 
 We want to know the power-law distribution of the measured Bittorrent networks, and we do not know \textit{a priori} if our data are power-law distributed.
 %Simply calculating the estimated scaling parameter gives no indication of whether the power-law is a good model.  
@@ -285,7 +289,7 @@ For \emph{torrent1}, setting $x_{min}=2$  leads to  $\alpha=2.11$, while $x_{min
 For \emph{torrent1}, xmin = 1 visually does not give a good fit, while for  \emph{torrent3}, setting $x_{min}=1$ leads to a visually good fit.
 
 Figure  \ref{fig:cdf-p} shows the CDF for $p$ values for all data sets. 
-This figure shows that from the K-S statistics point of view, around $45\%$ of the time, Bitorrent networks do not follow a power-law model.
+This figure shows that from the K-S statistics point of view, almost half of the time, Bitorrent networks do not follow a power-law model.
 %A magnified view CDF value at p-value=$0.1$ for every swarm is shown in Fig.\ref{fig:cdf-p-01}.
 %This figure explain that every swarm has different number of $p$ value $\ge 0.1$.
 %Some Bittorrent swarms do not exhibit power-law model and some others show the plausibility of power-law model.
@@ -297,21 +301,21 @@ We address these concerns next.
 
 \begin{figure}[!tb]
 \begin{center}
-\includegraphics[scale=0.6]{graphs/output_2.eps}
+\includegraphics[scale=0.55]{graphs/output_2.eps}
 \end{center}
 \caption{Node degree fit for snapshots of two torrents, with three fits shown in log scale. Torrent1: for $x_{min}=1$ , $\alpha = 2.9$, and $p=0.01$. For $x_{min}=2$ , $\alpha = 2.11$, and $p = 0.01$. Torrent3: for $x_{min}=1$, $\alpha = 2.1$, and $p = 0.1$. }
 \label{fig:fitting}
-\vspace{-6mm}
+\vspace{-2mm}
 \end{figure}
 
 \begin{figure}[!tb]
 \begin{center}
-\includegraphics[scale=0.6]{graphs/new/aggregate-p-cdf.eps}
+\includegraphics[scale=0.5]{graphs/new/aggregate-p-cdf.eps}
 \end{center}
 \caption{CDF plot of $p$ value of K-S statistics. It shows that across our entire set of Bittorrent snapshots, around $45\%$ of the time a power-law distribution is not a good fit for the data. 
 The inset figure shows the CDF plot $p$ value for each torrent. The dash line on $p$ value = 0.1 is the threshold.} 
 \label{fig:cdf-p}
-\vspace{-5mm}
+\vspace{-2mm}
 \end{figure}
 
 \subsection{Alternative Distributions}
@@ -323,20 +327,33 @@ The likelihood ratio test idea is to compute the likehood of the data sets under
 The one with the higher likehood is the better fit. 
 We use the likelihood ratio test to see whether other distributions can give better parameter estimation.
 
-\begin{figure*}[!th]
-\begin{center}
-\subfloat[Scatter plot of $p$ value vs $\rho$ value. 
-        Points in area 1 ($\rho$ value $<0.1$ and $p$ value $>0$) are the samples where a power-law with exponential cut-off is a more plausible model than a power-law.
-        In area 3, a pure power-law may be more plausible than power-law with exponential cut-off, while in area 2 the results are ambiguous.]{
-{\includegraphics[width=2.5in]{graphs/new/gabung-korelasi-p-rho.eps}}
-{\label{fig:scatter-pvalue-vs-rho}}}
-\subfloat[Scatter plot of $p$ value vs log-likelihood ratio (LR) for $\rho < 0.1$. In this figure we define area 1: $LR>0$ and $p$ value $<0.1$, area 2: $LR>0$ and $p$ value $>0.1$, area 3: $LR<0$ and $p$ value $<0.1$, area 4: $LR<0$ and $p$ value $>0.1$. There are no points in area 1 and area 2, meaning that the power-law model is not a better model for all data; instead $42\%$ of the points lie in area 3 and $58\%$ of the points lie in area 4.]{
-{\includegraphics[width=2.5in]{graphs/new/gabung-korelasi-p-rho-4region.eps}}
-{\label{fig:scatter-pvalue-vs-lr-for-rho-le-01}}}
-\caption{Scatter plot $p$ values vs log-likelihood ratio (LR)}
-\label{fig:scatter-vs-lr}
-\end{center}
-\vspace{-5mm}
+\begin{figure*}[!tb]
+\centering
+\begin{minipage}[b]{.45\linewidth}
+\centering
+\includegraphics[width=2.5in]{graphs/new/gabung-korelasi-p-rho.eps}
+\end{minipage}%
+\hfill%
+\begin{minipage}[b]{.45\linewidth}
+\centering
+\centering
+\includegraphics[width=2.5in]{graphs/new/gabung-korelasi-p-rho-4region.eps}
+\end{minipage}\\[-7pt]
+\begin{minipage}[t]{.45\linewidth}
+\caption{Scatter plot of $p$ value vs $\rho$ value. Points in area 1 ($\rho$ value $<0.1$ and $p$ value $>0$) are the samples where a power-law with exponential cut-off is a more plausible model than a power-law. In area 3, a pure power-law may be more plausible than power-law with exponential cut-off, while in area 2 the results are ambiguous.}
+\label{fig:scatter-pvalue-vs-rho}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{.45\linewidth}
+\caption{Scatter plot of $p$ value vs log-likelihood ratio (LR) for $\rho < 0.1$.
+         In this figure we define area 1: $LR>0$ and $p$ value $<0.1$, area 2: $LR>0$ 
+         and $p$ value $>0.1$, area 3: $LR<0$ and $p$ value $<0.1$, area 4: $LR<0$ and $p$ 
+         value $>0.1$. There are no points in area 1 and area 2, meaning that the power-law
+         model is not a better model for all data; instead $42\%$ of the points lie in area 3 
+         and $58\%$ of the points lie in area 4.}
+\label{fig:scatter-pvalue-vs-lr-for-rho-le-01}
+\end{minipage}%
+\vspace{-2mm}
 \end{figure*}
 
 \subsubsection{Nested Case}
@@ -379,44 +396,69 @@ In non-nested case, we compare power-law distribution with log-normal distributi
 We calculate the ratio of two likelihood distributions or the logarithm of the ratio, which is positive or negative depending on which distribution is better of zero in the event of a tie. 
 The positive or negative sign of log-likelihood ratio does not definitively indicate which model is the better fit. 
 Vuong's \cite{vuong1989likelihood}  method gives a $\rho$ value that can tell us whether the observed sign of likelihood ratio is statistically significant.
-If this $\rho$ value is small (less than 0.1) then the sign of log-likehood ratio is a reliable indicator of which model is the better fit to the data. 
+If this $\rho$ value is small ($\rho < 0.1$) then the sign of log-likehood ratio is a reliable indicator of which model is the better fit to the data. 
 If the $\rho$ value is large the sign of log-likehood ratio is not reliable and the test does not favor either model over the other. 
 
-\begin{figure*}[!t]
-\begin{center}
-\subfloat[CDF plot of $\rho$ value of log-likehood ratio test for power-law vs log-normal. Only $13\%$ $\rho$ values are less than $0.1$ therefore log-likelihood ratio sign is reliable only for $13\%$.]{
-{\includegraphics[width=2.5in]{graphs/non-nested/aggregate-p-cdf-non-nested-lognorm.eps}}
-{\label{fig:cdf-p-lognorm}}}
-\subfloat[Scatter plot of log-likehood ratio for power-law vs log-normal for $\rho$ values less than $0.1$. All of log-likelihood ratio values sign are negative therefore log-normal is not a better fit.]{
-{\includegraphics[width=2.5in]{graphs/non-nested/lr-p-lognorm.eps}}
-{\label{fig:scatter-lognorm}}}
-\caption{CDF plot of $\rho$ value  and Scatter plot $p$ values vs log-likelihood ratio (LR) for likelihood test for power-law vs log-normal.}
-\label{fig:non-nested-lognorm}
-\end{center}
-\vspace{-5mm}
+\begin{figure*}[!tb]
+\centering
+\begin{minipage}[b]{.45\linewidth}
+\centering
+\includegraphics[width=2.5in]{graphs/non-nested/aggregate-p-cdf-non-nested-lognorm.eps}
+\end{minipage}%
+\hfill%
+\begin{minipage}[b]{.45\linewidth}
+\centering
+\centering
+\includegraphics[width=2.5in]{graphs/non-nested/lr-p-lognorm.eps}
+\end{minipage}\\[-7pt]
+\begin{minipage}[t]{.45\linewidth}
+\caption{CDF plot of $\rho$ value of log-likehood ratio test for power-law v.s 
+         log-normal. Only $13\%$ $\rho$ values are less than $0.1$.} 
+\label{fig:cdf-p-lognorm}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{.45\linewidth}
+\caption{CDF plot of $\rho$ value  and Scatter plot $p$ values v.s log-likelihood
+         ratio (LR) for likelihood test for power-law vs log-normal.} 
+\label{fig:scatter-lognorm}
+\end{minipage}%
+\vspace{-2mm}
 \end{figure*}
 
-\begin{figure*}[!t]
-\begin{center}
-\subfloat[CDF plot of $\rho$ value of log-likehood ratio test for power-law vs exponential. Only $5.5\%$ $\rho$ values are less than $0.1$ therefore log-likelihood ratio sign is reliable only for $5.5\%$.]{
-{\includegraphics[width=2.5in]{graphs/non-nested/aggregate-p-cdf-non-nestedi-exp.eps}}
-{\label{fig:cdf-p-exp}}}
-\subfloat[Scatter plot of log-likehood ratio for power-law vs exponential for $\rho$ values less than $0.1$. All of log-likelihood ratio values sign are negative therefore exponential is not a better fit.]{
-{\includegraphics[width=2.5in]{graphs/non-nested/lr-pi-exp.eps}}
-{\label{fig:scatter-exp}}}
-\caption{CDF plot of $\rho$ value  and Scatter plot $p$ values vs log-likelihood ratio (LR) for likelihood test for power-law vs exponential.}
-\label{fig:non-nested-exp}
-\end{center}
-\vspace{-5mm}
+\begin{figure*}[!tb]
+\centering
+\begin{minipage}[b]{.45\linewidth}
+\centering
+\includegraphics[width=2.5in]{graphs/non-nested/aggregate-p-cdf-non-nestedi-exp.eps}
+\end{minipage}%
+\hfill%
+\begin{minipage}[b]{.45\linewidth}
+\centering
+\centering
+\includegraphics[width=2.5in]{graphs/non-nested/lr-pi-exp.eps}
+\end{minipage}\\[-7pt]
+\begin{minipage}[t]{.45\linewidth}
+\caption{CDF plot of $\rho$ value of log-likehood ratio test for power-law v.s exponential. 
+         Only $5.5\%$ $\rho$ values are less than $0.1$.}
+\label{fig:cdf-p-exp}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{.45\linewidth}
+\caption{CDF plot of $\rho$ value  and Scatter plot $p$ values v.s log-likelihood 
+         ratio (LR) for likelihood test for power-law vs exponential.} 
+\label{fig:scatter-exp}
+\end{minipage}%
+\vspace{-2mm}
 \end{figure*}
 
-Figure \ref{fig:cdf-p-lognorm} and Fig.\ref{fig:cdf-p-exp} show the CDF of the $\rho$ value for log-likehood ratio between power-law and log-normal distributions and log-likehood ratio between power-law and exponential distributions.
-For power-law v.s log-normal distributions, less than $13\%$ of the $\rho$-values are less than $0.1$ therefore log-likelihood ratio sign is reliable only for $13\%$ data points.
-In power-law v.s exponential distribution less than $5.5\%$ of the $\rho$ values are less than $0.1$ therefore log-likehood ratio sign is reliable only for $5.5\%$ data points.
-For the other $87\%$ in power-law v.s log-normal distributions and $94.5\%$ in power-law v.s exponential distributions, this test indicates that we cannot use the sign of the log-likelihood ratio to draw firm conclusions.
-
-Figure \ref{fig:scatter-lognorm} and Fig.\ref{fig:scatter-exp} show scatter plot the log-likehood ratio where $\rho$ value less than $0.1$ for power-law v.s log-normal distributions and power-law v.s exponential distributions. 
-Since all like-lihood ratio values are negative the alternative distributions are not a better than power-law distributions. 
+Figure \ref{fig:cdf-p-lognorm} and Fig. \ref{fig:cdf-p-exp} show the CDF of the $\rho$ value for log-likehood ratio between power-law and log-normal distributions and log-likehood ratio between power-law and exponential distributions.
+%For power-law v.s log-normal distributions, less than $13\%$ of the $\rho$-values are less than $0.1$ therefore log-likelihood ratio sign is reliable only for $13\%$ data points.
+%In power-law v.s exponential distribution less than $5.5\%$ of the $\rho$ values are less than $0.1$ therefore log-likehood ratio sign is reliable only for $5.5\%$ data points.
+%For the other $87\%$ in power-law v.s log-normal distributions and $94.5\%$ in power-law v.s exponential distributions, this test indicates that we cannot use the sign of the log-likelihood ratio to draw firm conclusions.
+%Figure \ref{fig:scatter-lognorm} and Fig.\ref{fig:scatter-exp} show scatter plot the log-likehood ratio where $\rho$ value less than $0.1$ for power-law v.s log-normal distributions and power-law v.s exponential distributions. 
+%Since all like-lihood ratio values are negative the alternative distributions are not a better than power-law distributions. 
+Both alternative distributions only show very small number of data points that have $\rho < 0.1$, each at $13\%$ and $5.5\%$.
+For these data points the log-likelihood ratio have negative signs as shown in Fig. \ref{fig:scatter-lognorm} and Fig. \ref{fig:scatter-exp}, therefore the alternative distributions are not better than power-law.
 With the vast majority of the values for $\rho$ being larger than 0.1, the results of the log-likelihood ratio test are ambiguous. 
 Therefore, it is important to look at physical motivation or theoretical factors or design factors behind the systems to make a sensible judgement. 
 
@@ -447,7 +489,7 @@ Considering only the low clustering coefficient, the Bittorrent topologies seem 
 
 \begin{figure}[!tb]
 \begin{center}
-\includegraphics[scale=0.65]{graphs/new/cdf-clustering.eps}
+\includegraphics[scale=0.5]{graphs/new/cdf-clustering.eps}
 \end{center}
 \caption{CDF plot of the clustering coefficient for each torrent. It is clearly show that Bittorrent networks have low clustering coefficient.} 
 \label{fig:cdf-clustering}
@@ -468,7 +510,7 @@ The Spearman rank correlation test gives $0.38 \leq \rho \leq 0.5$, which we con
 
 \begin{figure}[!tb]
 \begin{center}
-\includegraphics[scale=0.65]{netscicom-graphs/simula.eps}
+\includegraphics[scale=0.5]{netscicom-graphs/simula.eps}
 \end{center}
 \caption{$\alpha$ estimation and $p$ value for global topology and topology inferred from PEX where both done in our simulator.
 The simulator confirms that the PEX method can be used to estimate $\alpha$.} 
