@@ -69,9 +69,8 @@ P2P, Bittorrent, PEX, Power-Law, Network Topology
 %P2P traffic is still growing, though recent studies suggest that its growth is slower than that of Internet traffic as a whole  \cite{labovitz2010internet} \cite{index2010forecast}. 
 %Even though P2P traffic is declining proportion to the global traffic, in absolute terms P2P traffic itself is slowly growing, as shown by the Cisco visual networking index \cite{index2010forecast}. 
 Bitorrent is the most popular P2P protocol.
-P2P traffic dominated the Internet in 2008 is still growing even though recent studies suggest that its growth is slower than that, and its proportion to the Internet traffic is declining \cite{labovitz2010internet} \cite{index2010forecast}.
-
-This popularity reflects the robustness and efficiency of the Bittorrent protocol. 
+P2P traffic dominated the Internet in 2008 and it is still growing even though recent studies suggest that its growth is slower than the growth of the Internet traffic, and its proportion to the Internet traffic is declining \cite{labovitz2010internet} \cite{index2010forecast}.
+This popularity probably reflects the robustness and efficiency of the Bittorrent protocol. 
 These characteristics of Bittorrent come from its peer and piece selection strategies to distribute large files efficiently. 
 Bittorrent has now become the de-facto standard to distribute large files. 
 For example, ISO images of Linux distributions are always available on Bittorrent along with the traditional download mechanisms HTTP and FTP.  
@@ -219,6 +218,7 @@ This implies that our data set is independent of measurement location and the nu
 Many realistic networks exhibit the scale-free property \cite{clauset2009power}, though we note that ``scale-free" is not a complete description of a network topology \cite{doyle2005robust}\cite{mahadevan2006systematic}. 
 It has been suggested that Bittorrent networks also might have scale-free characteristics \cite{dale2008evolution}. 
 In this paper, we test this hypothesis. 
+Besides testing this hypothesis, we also study the clustering property of Bittorrent swarms. 
 
 In a scale-free network, the degree distribution follows a power-law distribution.   
 A power-law distribution is quite a natural model and can be generated from simple generative processes \cite{mitzenmacher2004brief}, and power-law models appear in many areas of science \cite{clauset2009power} \cite{mitzenmacher2004brief}. 
@@ -253,8 +253,6 @@ The most common way to fit empirical data to a power-law is to take the logarith
 We use maximum likelihood to estimate the scaling parameter $\alpha$ of power-law \cite{clauset2009power}.  
 This approach is accurate to estimate the scaling parameter in the limit of large sample size. 
 For the detailed calculations of both $x_{min}$ and $\alpha$, see Appendix B in \cite{clauset2009power}.
-We found in the literature contradictory results of \textit{clustering},
-Furthermore, we also study the clustering in Bittorrent swarms.
 
 %--------------- EXPERIMENT RESULT -------------------------
 \section{Experimental Results}\label{result}
@@ -266,7 +264,7 @@ It is clear that the number of peers has  high variability due to churn in Bitto
 The degree of a node in a network is the number of edges connected to that node. 
 If we define $p_k$ as the  fraction of nodes in the network that have degree $k$, then $p_k$ is the probability that a node chosen uniformly at random has degree $k$. 
 %If we plot a histogram of $p_k$ then this histogram is the degree distribution for  the network. 
-Instead of a histogram plot,  we show node degree data in cumulative distribution function (CDF) plot which can be expressed as
+We show node degree data in cumulative distribution function (CDF) plot, which can be expressed as
 \begin{equation}
 P_k = \sum_{k'=k}^{\infty} p_{k'}.
 \end{equation}
@@ -366,13 +364,13 @@ Under the likelihood ratio test, we compare the pure power-law model to power-la
 
 Figure \ref{fig:scatter-pvalue-vs-rho} shows a $p$ value vs $\rho$ value scatter plot, divided into three areas.
 Area 1: $\rho$ value $<0.1$ and $p$ value $>0$. 
-Area 2: $\rho$ value $>0.1$ and $p$ value $<0.1$
-Area 3: $\rho$ value $>0.1$ and  $p$ value $>0.1$ 
+Area 2: $\rho$ value $>0.1$ and $p$ value $<0.1$.
+Area 3: $\rho$ value $>0.1$ and  $p$ value $>0.1$. 
 %This division will make it easier to see how sparse the points are in each area and to see how many points fall into $\rho$ value $<0.1$.
 This figure shows that $52\%$ of the samples lie in area 1, thus an alternative model may be plausible for these samples.
 %We do not count LR value in that figure instead at least $\rho < 0.1$ is indication that alternative model gives a better fit rather than pure power-law model.
 
-Now we plot $p$ value vs LR as shown in Fig.\ref{fig:scatter-pvalue-vs-lr-for-rho-le-01} for $\rho < 0.1$.
+Now we plot $p$ value vs LR as shown in Fig. \ref{fig:scatter-pvalue-vs-lr-for-rho-le-01} for $\rho < 0.1$.
 We divide the figure into four areas: area 1, area 2, area 3, and area 4  with green lines as borders to see how sparse the points are in each area.
 Area 1: LR=positive sign and $p$ value $<0.1$.
 Area 2: LR=positive sign and $p$ value $>0.1$.
@@ -451,14 +449,14 @@ If the $\rho$ value is large the sign of log-likehood ratio is not reliable and 
 \vspace{-2mm}
 \end{figure*}
 
-Figure \ref{fig:cdf-p-lognorm} and Fig. \ref{fig:cdf-p-exp} show the CDF of the $\rho$ value for log-likehood ratio between power-law and log-normal distributions and log-likehood ratio between power-law and exponential distributions.
+Figure \ref{fig:cdf-p-lognorm} and Fig. \ref{fig:cdf-p-exp} show the CDF of the $\rho$ value for the log-likehood ratio between power-law and log-normal distributions and the log-likehood ratio between power-law and exponential distributions.
 %For power-law v.s log-normal distributions, less than $13\%$ of the $\rho$-values are less than $0.1$ therefore log-likelihood ratio sign is reliable only for $13\%$ data points.
 %In power-law v.s exponential distribution less than $5.5\%$ of the $\rho$ values are less than $0.1$ therefore log-likehood ratio sign is reliable only for $5.5\%$ data points.
 %For the other $87\%$ in power-law v.s log-normal distributions and $94.5\%$ in power-law v.s exponential distributions, this test indicates that we cannot use the sign of the log-likelihood ratio to draw firm conclusions.
 %Figure \ref{fig:scatter-lognorm} and Fig.\ref{fig:scatter-exp} show scatter plot the log-likehood ratio where $\rho$ value less than $0.1$ for power-law v.s log-normal distributions and power-law v.s exponential distributions. 
 %Since all like-lihood ratio values are negative the alternative distributions are not a better than power-law distributions. 
-Both alternative distributions only show very small number of data points that have $\rho < 0.1$, each at $13\%$ and $5.5\%$.
-For these data points the log-likelihood ratio have negative signs as shown in Fig. \ref{fig:scatter-lognorm} and Fig. \ref{fig:scatter-exp}, therefore the alternative distributions are not better than power-law.
+Both alternative distributions only show very small number of data points that have $\rho < 0.1$, each at around $13\%$ and $5.5\%$.
+The log-likelihood ratio of these data points have negative signs as shown in Fig. \ref{fig:scatter-lognorm} and Fig. \ref{fig:scatter-exp}, therefore the alternative distributions are not better than power-law.
 With the vast majority of the values for $\rho$ being larger than 0.1, the results of the log-likelihood ratio test are ambiguous. 
 Therefore, it is important to look at physical motivation or theoretical factors or design factors behind the systems to make a sensible judgement. 
 
