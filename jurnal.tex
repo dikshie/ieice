@@ -396,12 +396,6 @@ If the $\rho$ value is large the sign of log-likehood ratio is not reliable and 
 \vspace{-5mm}
 \end{figure*}
 
-Figure \ref{fig:cdf-p-lognorm} shows the CDF of the $\rho$ value for log-likehood ratio between power-law and log-normal.  
-Less than $13\%$ of the $\rho$-values are less than $0.1$ therefore log-likelihood ratio sign is reliable only for $13\%$ data points.
-For the other 87%, this test indicates that we cannot use the sign of the log-likelihood ratio to draw firm conclusions.
-Figure \ref{fig:scatter-lognorm} shows the log-likehood ratio for the points where $\rho < 0.1$.  For these points, 
-all log-likehood ratio values have negative signi, therefore log-normal is not a better distribution than power-law.
-
 \begin{figure*}[!t]
 \begin{center}
 \subfloat[CDF plot of $\rho$ value of log-likehood ratio test for power-law vs exponential. Only $5.5\%$ $\rho$ values are less than $0.1$ therefore log-likelihood ratio sign is reliable only for $5.5\%$.]{
@@ -416,17 +410,15 @@ all log-likehood ratio values have negative signi, therefore log-normal is not a
 \vspace{-5mm}
 \end{figure*}
 
-Figure \ref{fig:cdf-p-exp} shows the CDF of the $\rho$ values for log-likehood ratio between power-law and exponential. 
-Less than $5.5\%$ of the $\rho$ values are less than $0.1$ therefore log-likelihood ratio sign is reliable only for $5.5\%$ data points.
-Beyond of that, we can not take conclusive answer since log-likehood ratio sign is not reliable indicator.
-Figure \ref{fig:scatter-exp} shows the log-likelihood ratio where $\rho$ value less than $0.1$. 
-Since all log-likelihood ratio values have negative sign, exponential is not a better than power-law.
+Figure \ref{fig:cdf-p-lognorm} and Fig.(\ref{fig:cdf-p-exp}) show the CDF of the $\rho$ value for log-likehood ratio between power-law and log-normal distributions and log-likehood ratio between power-law and exponential distributions.
+For power-law v.s log-normal distributions, less than $13\%$ of the $\rho$-values are less than $0.1$ therefore log-likelihood ratio sign is reliable only for $13\%$ data points.
+In power-law v.s exponential distribution less than $5.5\%$ of the $\rho$ values are less than $0.1$ therefore log-likehood ratio sign is reliable only for $5.5\%$ data points.
+For the other $87\%$ in power-law v.s log-normal distributions and $94.5\%$ in power-law v.s exponential distributions, this test indicates that we cannot use the sign of the log-likelihood ratio to draw firm conclusions.
 
-The results of $\rho$ values that larger than $0.1$ make log-likelihood ratio become ambiguous therefore
-we found for almost data sets the likelihood ratio tests can not give conclusive answer. 
-In that case, it is important to look at physical motivation or theoretical factors or design factors behind the systems to make a sensible judgement. 
-%%We repeat our message that comparing models in highly dynamic networks is very complex tasks.
-
+Figure \ref{fig:scatter-lognorm} and Fig.(\ref{fig:scatter-exp}) show scatter plot the log-likehood ratio where $\rho$ value less than $0.1$ for power-law v.s log-normal distributions and power-law v.s exponential distributions. 
+Since all like-lihood ratio values are negative the alternative distributions are not a better than power-law distributions. 
+With the vast majority of the values for $\rho$ being larger than 0.1, the results of the log-likelihood ratio test are ambiguous. 
+Therefore, it is important to look at physical motivation or theoretical factors or design factors behind the systems to make a sensible judgement. 
 
 
 \subsection{Clustering Coefficient}\label{clusteringcoef}
