@@ -458,10 +458,12 @@ Figure \ref{fig:cdf-p-lognorm} and Fig. \ref{fig:cdf-p-exp} show the CDF of the 
 Both alternative distributions only show very small number of data points that have $\rho < 0.1$, each at around $13\%$ and $5.5\%$.
 The log-likelihood ratio of these data points have negative signs as shown in Fig. \ref{fig:scatter-lognorm} and Fig. \ref{fig:scatter-exp}, therefore the alternative distributions are not better than power-law.
 With the vast majority of the values for $\rho$ being larger than 0.1, the results of the log-likelihood ratio test are ambiguous. 
-Therefore, it is important to look at physical motivation or theoretical factors or design factors behind the systems to make a sensible judgement. 
+Therefore, it is important to look at theoretical factors or design factors behind the systems to make a sensible judgement.
+For example: a leecher in a Bittorrent swarm is design to prefer the fastest seeders or leechers instead of high degree seeders or leechers. 
+With this design factor information, we can make a sensible judgement which distributional form is more reasonable.
 
 
-\subsection{Clustering Coefficient}\label{clusteringcoef}
+ssubsection{Clustering Coefficient}\label{clusteringcoef}
 
 Networks show a tendency for link formation between neighboring vertices called \textit{clustering} which reflects the topology robustness.
 %%It has practical implications; for example, if node A is connected to node B and node B to node C, then there is a probability that node A will also be
