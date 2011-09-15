@@ -129,7 +129,7 @@ After the metainfo file is read, a Bittorrent application contacts a tracker, wh
 learns that peer A is connected to peer B and C. At t=2, the actor gets  PEX messages from peers C and A. The actor
 learns that now peer A is connected to peer D. Thus the actor knows the properties of peer A at t=1 and t=2.} 
 \label{fig:pexworks}
-\vspace{-5mm}
+\vspace{-6mm}
 \end{figure}
 
 PEX is a mechanism introduced in Bittorrent to discover other peers in the swarm, in which two connected peers exchange messages containing a set of connected peers.  
@@ -203,12 +203,13 @@ Removal of some peers in data processing is valid in terms of sampling with dyna
 In terms of connectivity, two popular Bittorrent clients (uTorrent and Vuze), by default try to connect to peer candidates randomly without any preference, thus we have random data sets.
 This implies that our data set is independent of measurement location and the number of measurement locations.
 
-\begin{figure}[tb]
+\begin{figure}[!t]
 \begin{center}
 \includegraphics[scale=0.6]{graphs/new/cdf-num.eps}
 \end{center}
 \caption{CDF plot of number of peers for the 50 swarms during measurement with 104 to 1400 time samples for each torrent. This clearly shows high variation in the number of peers in every swarm, due to churn in Bittorrent networks.} 
 \label{fig:num_peers}
+\vspace{-6mm}
 \end{figure}
 
 %----------------- DATA ANALYSIS BACKGROUND --------------------
@@ -294,21 +295,23 @@ The usage of the maximum likelihood estimators for parameter estimation in power
 In the goodness-of-fit test, a large $p$ value does not mean the power-law  is the correct distribution for data sets, because there may be other distributions that match the data sets and there is always a possibility that even with small value of $p$ the distribution will follow a power-law \cite{clauset2009power}. 
 We address these concerns next.
 
-\begin{figure}[tb]
+\begin{figure}[!tb]
 \begin{center}
 \includegraphics[scale=0.6]{graphs/output_2.eps}
 \end{center}
 \caption{Node degree fit for snapshots of two torrents, with three fits shown in log scale. Torrent1: for $x_{min}=1$ , $\alpha = 2.9$, and $p=0.01$. For $x_{min}=2$ , $\alpha = 2.11$, and $p = 0.01$. Torrent3: for $x_{min}=1$, $\alpha = 2.1$, and $p = 0.1$. }
 \label{fig:fitting}
+\vspace{-6mm}
 \end{figure}
 
-\begin{figure}[tb]
+\begin{figure}[!tb]
 \begin{center}
 \includegraphics[scale=0.6]{graphs/new/aggregate-p-cdf.eps}
 \end{center}
 \caption{CDF plot of $p$ value of K-S statistics. It shows that across our entire set of Bittorrent snapshots, around $45\%$ of the time a power-law distribution is not a good fit for the data. 
 The inset figure shows the CDF plot $p$ value for each torrent. The dash line on $p$ value = 0.1 is the threshold.} 
 \label{fig:cdf-p}
+\vspace{-5mm}
 \end{figure}
 
 \subsection{Alternative Distributions}
@@ -333,6 +336,7 @@ We use the likelihood ratio test to see whether other distributions can give bet
 \caption{Scatter plot $p$ values vs log-likelihood ratio (LR)}
 \label{fig:scatter-vs-lr}
 \end{center}
+\vspace{-5mm}
 \end{figure*}
 
 \subsubsection{Nested Case}
@@ -378,21 +382,6 @@ Vuong's \cite{vuong1989likelihood}  method gives a $\rho$ value that can tell us
 If this $\rho$ value is small (less than 0.1) then the sign of log-likehood ratio is a reliable indicator of which model is the better fit to the data. 
 If the $\rho$ value is large the sign of log-likehood ratio is not reliable and the test does not favor either model over the other. 
 
-%\begin{figure}[tb]
-%\begin{center}
-%\includegraphics[scale=0.6]{graphs/non-nested/aggregate-p-cdf-non-nested-lognorm.eps}
-%\end{center}
-%\caption{CDF plot of $\rho$ value of log-likehood ratio test for power-law vs log-normal. Only $5.5\%$ $\rho$ values are less than $0.1$.}
-%\label{fig:cdf-p-lognorm}
-%\end{figure}
-%\begin{figure}[tb]
-%\begin{center}
-%\includegraphics[scale=0.6]{graphs/non-nested/lr-p-lognorm.eps}
-%\end{center}
-%\caption{Scatter plot of log-likehood ratio for power-law vs log-normal. All of log-likelihood ratio values sign are negative.}
-%\label{fig:scatter-lognorm}
-%\end{figure}
-
 \begin{figure*}[!t]
 \begin{center}
 \subfloat[CDF plot of $\rho$ value of log-likehood ratio test for power-law vs log-normal. Only $13\%$ $\rho$ values are less than $0.1$ therefore log-likelihood ratio sign is reliable only for $13\%$.]{
@@ -404,6 +393,7 @@ If the $\rho$ value is large the sign of log-likehood ratio is not reliable and 
 \caption{CDF plot of $\rho$ value  and Scatter plot $p$ values vs log-likelihood ratio (LR) for likelihood test for power-law vs log-normal.}
 \label{fig:non-nested-lognorm}
 \end{center}
+\vspace{-5mm}
 \end{figure*}
 
 Figure \ref{fig:cdf-p-lognorm} shows the CDF of the $\rho$ value for log-likehood ratio between power-law and log-normal.  
@@ -411,21 +401,6 @@ Less than $13\%$ of the $\rho$-values are less than $0.1$ therefore log-likeliho
 Beyond of that, we can not take conclusive answer since log-likehood ratio sign is not reliable indicator. 
 Figure \ref{fig:scatter-lognorm} shows the log-likehood ratio where the $\rho$ value less than $0.1$. 
 All log-likehood ratio values have negative sign therefore log-normal is not a better than power-law.
-
-%\begin{figure}
-%\begin{center}
-%\includegraphics[scale=0.6]{graphs/non-nested/aggregate-p-cdf-non-nestedi-exp.eps}
-%\end{center}
-%\caption{CDF plot of $\rho$ value of log-likehood ratio test for power-law vs exponential. Only $13\%$ $\rho$ values are less than $0.1$.}
-%\label{fig:cdf-p-exp}
-%\end{figure}
-%\begin{figure}[tb]
-%\begin{center}
-%\includegraphics[scale=0.6]{graphs/non-nested/lr-pi-exp.eps}
-%\end{center}
-%\caption{Scatter plot of log-likehood ratio for power-law vs exponential. All log-likelihood ratio values sign are negative.}
-%\label{fig:scatter-exp}
-%\end{figure}
 
 \begin{figure*}[!t]
 \begin{center}
@@ -438,8 +413,8 @@ All log-likehood ratio values have negative sign therefore log-normal is not a b
 \caption{CDF plot of $\rho$ value  and Scatter plot $p$ values vs log-likelihood ratio (LR) for likelihood test for power-law vs exponential.}
 \label{fig:non-nested-exp}
 \end{center}
+\vspace{-5mm}
 \end{figure*}
-
 
 Figure \ref{fig:cdf-p-exp} shows the CDF of the $\rho$ values for log-likehood ratio between power-law and exponential. 
 Less than $5.5\%$ of the $\rho$ values are less than $0.1$ therefore log-likelihood ratio sign is reliable only for $5.5\%$ data points.
@@ -484,6 +459,7 @@ Considering only the low clustering coefficient, the Bittorrent topologies seem 
 \end{center}
 \caption{CDF plot of the clustering coefficient for each torrent. It is clearly show that Bittorrent networks have low clustering coefficient.} 
 \label{fig:cdf-clustering}
+\vspace{-5mm}
 \end{figure}
 
 \section{Confirmation via Simulation}\label{simulation}
@@ -505,6 +481,7 @@ The Spearman rank correlation test gives $0.38 \leq \rho \leq 0.5$, which we con
 \caption{$\alpha$ estimation and $p$ value for global topology and topology inferred from PEX where both done in our simulator.
 The simulator confirms that the PEX method can be used to estimate $\alpha$.} 
 \label{fig:simulation}
+\vspace{-5mm}
 \end{figure}
 
 \section{Related Work}\label{relatedworks}
