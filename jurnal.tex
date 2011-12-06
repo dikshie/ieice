@@ -16,6 +16,8 @@
 \usepackage{epsfig}
 \usepackage{float}
 \usepackage{caption}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
 %\captionsetup[subfigure]{labelformat=parens, format=hang, margin=0pt, parskip=0pt,
 %		hangindent=0pt, indention=0pt, singlelinecheck=false, textfont=footnotesize}
 
@@ -525,12 +527,16 @@ Bittorrent protocol performance has been explored extensively \cite{guo2005measu
 %Higher upload-to-download ratios in  Bittorrent darknet were discussed in C.Zhang \textit{et al}. \cite{zhang2010bittorrent}.
 Although we know that the topology can have a large impact on performance, to date only a few papers have addressed the issue.
 Urvoy \textit{et al}. \cite{urvoy2007impact} used a discrete event simulator to show that the time to distribute a file in a Bittorrent swarm has a strong relation to the overlay topology.  
-Al-Hamra et al. \cite{al2007understanding}, also using a discrete event simulator, showed that Bittorrent creates a robust overlay topology and the overlay topology formed is not random. 
+Al-Hamra \textit{et al}. \cite{al2007understanding}, also using a discrete event simulator, showed that Bittorrent creates a robust overlay topology and the overlay topology formed is not random. 
 They also show that peer exchange (PEX) generates a chain-like overlay with a large diameter. 
 Dale \textit{et al}. \cite{dale2008evolution}, in an experimental study on PlanetLab, show that in the initial stage of Bittorrent a peer will get a random peer list from the tracker. 
 They found that a network of peers that unchoked each other is scale-free and the node degree follows a power-law distribution with exponent approximately 2. 
 Dale \textit{et al}. \cite{dale2008evolution} also showed that the path length formed in Bittorrent swarms averages four hops and Bittorrent swarms have low average clustering coefficient.  
 However, little work has been done on confirming that such controlled experiments correspond to the system. %that topology in the real world. 
+We emphasize that compared to Ho\ss{}feld \textit{et al}. \cite{TR464}, our work provides completely different approach and goal.
+Ho\ss{}feld \textit{et al}. \cite{TR464} discuss the AS (Autonomous System) level topology of Bittorrent swarm for optimizing overlay traffic across AS, while our study focus on microspic dynamic aspect which is Bittorrent swarms topology itself (peer level or IP address level). 
+Our work is close to Kryczka \textit{et al}. \cite{Kryczka2011}.
+
 
 Our results agree with previous research \cite{dale2008evolution} in some areas and disagree in others, perhaps for two reasons.
 First, power-law claims must be handled carefully. 
