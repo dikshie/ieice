@@ -291,7 +291,7 @@ For \emph{torrent1}, setting $x_{min}=2$  leads to  $\alpha=2.11$, while $x_{min
 For \emph{torrent1}, xmin = 1 visually does not give a good fit, while for  \emph{torrent3}, setting $x_{min}=1$ leads to a visually good fit.
 
 Figure  \ref{fig:cdf-p} shows the CDF for $p$ values for all data sets. 
-This figure shows that from the K-S statistics point of view, almost half of the time, Bittorrent networks do not follow a power-law model.
+This figure shows that from the K-S statistics point of view, around $45\%$ of the time a power-law distribution is not a good fit for the data. 
 %A magnified view CDF value at p-value=$0.1$ for every swarm is shown in Fig.\ref{fig:cdf-p-01}.
 %This figure explain that every swarm has different number of $p$ value $\ge 0.1$.
 %Some Bittorrent swarms do not exhibit power-law model and some others show the plausibility of power-law model.
@@ -305,7 +305,8 @@ We address these concerns next.
 \begin{center}
 \includegraphics[scale=0.55]{graphs/output_2.eps}
 \end{center}
-\caption{Node degree fit for snapshots of two torrents, with three fits shown in log scale. Torrent1: for $x_{min}=1$ , $\alpha = 2.9$, and $p=0.01$. For $x_{min}=2$ , $\alpha = 2.11$, and $p = 0.01$. Torrent3: for $x_{min}=1$, $\alpha = 2.1$, and $p = 0.1$. }
+\caption{Node degree fit for snapshots of two torrents, with three fits shown in log scale.} 
+%Torrent1: for $x_{min}=1$ , $\alpha = 2.9$, and $p=0.01$. For $x_{min}=2$ , $\alpha = 2.11$, and $p = 0.01$. Torrent3: for $x_{min}=1$, $\alpha = 2.1$, and $p = 0.1$. }
 \label{fig:fitting}
 \vspace{-2mm}
 \end{figure}
@@ -314,7 +315,8 @@ We address these concerns next.
 \begin{center}
 \includegraphics[scale=0.5]{graphs/new/aggregate-p-cdf.eps}
 \end{center}
-\caption{CDF plot of $p$ value of K-S statistics. It shows that across our entire set of Bittorrent snapshots, around $45\%$ of the time a power-law distribution is not a good fit for the data. 
+\caption{CDF plot of $p$ value of K-S statistics.} 
+%It shows that across our entire set of Bittorrent snapshots, around $45\%$ of the time a power-law distribution is not a good fit for the data. 
 The inset figure shows the CDF plot $p$ value for each torrent. The dash line on $p$ value = 0.1 is the threshold.} 
 \label{fig:cdf-p}
 \vspace{-2mm}
