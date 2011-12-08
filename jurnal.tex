@@ -206,15 +206,6 @@ Removal of some peers in data processing is valid in terms of sampling with dyna
 In terms of connectivity, two popular Bittorrent clients (uTorrent and Vuze), by default try to connect to peer candidates randomly without any preference, thus we have random data sets.
 This implies that our data set is independent of measurement location and the number of measurement locations.
 
-\begin{figure}[!t]
-\begin{center}
-\includegraphics[scale=0.5]{graphs/new/cdf-num.eps}
-\end{center}
-\caption{CDF plot of number of peers for the 50 swarms during measurement with 104 to 1400 time samples for each torrent. This clearly shows high variation in the number of peers in every swarm, due to churn in Bittorrent networks.} 
-\label{fig:num_peers}
-\vspace{-6mm}
-\end{figure}
-
 %----------------- DATA ANALYSIS BACKGROUND --------------------
 \subsection{Data Analysis Background}
 Many realistic networks exhibit the scale-free property \cite{clauset2009power}, though we note that ``scale-free" is not a complete description of a network topology \cite{doyle2005robust}\cite{mahadevan2006systematic}. 
@@ -256,10 +247,21 @@ We use maximum likelihood to estimate the scaling parameter $\alpha$ of power-la
 This approach is accurate to estimate the scaling parameter in the limit of large sample size. 
 For the detailed calculations of both $x_{min}$ and $\alpha$, see Appendix B in \cite{clauset2009power}.
 
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[scale=0.5]{graphs/new/cdf-num.eps}
+\end{center}
+\caption{CDF plot of number of peers for the 50 swarms during measurement.}
+%\caption{CDF plot of number of peers for the 50 swarms during measurement with 104 to 1400 time samples for each torrent. 
+%This clearly shows high variation in the number of peers in every swarm, due to churn in Bittorrent networks.} 
+\label{fig:num_peers}
+\vspace{-6mm}
+\end{figure}
+
 %--------------- EXPERIMENT RESULT -------------------------
 \section{Experimental Results}\label{result}
-Our time samples for the size of swarms are plotted as the CDF of the number of peers for every swarm during measurementi, as shown in Fig. \ref{fig:num_peers}. 
-It is clear that the number of peers has  high variability due to churn in Bittorrent networks. 
+Our time samples for the size of swarms are plotted as the CDF of the number of peers for every swarm during measurement with 104 to 1400 time samples for each torrent, as shown in Fig. \ref{fig:num_peers}. 
+It is clear that the number of peers has high variability due to churn in Bittorrent networks. 
 %The number of peers will have a relationship with the clustering coefficient, which will be explained in section \ref{clusteringcoef}.
 
 \subsection{Power-law Distribution of Node Degree}
