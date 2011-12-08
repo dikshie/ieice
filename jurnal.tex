@@ -292,6 +292,8 @@ For \emph{torrent1}, xmin = 1 visually does not give a good fit, while for  \emp
 
 Figure  \ref{fig:cdf-p} shows the CDF for $p$ values for all data sets. 
 This figure shows that from the K-S statistics point of view, around $45\%$ of the time a power-law distribution is not a good fit for the data. 
+The inset figure in fig. \ref{fig:cdf-p} shows the CDF plot $p$ value for each torrent. 
+The dash line on $p$ value = 0.1 is the threshold.
 %A magnified view CDF value at p-value=$0.1$ for every swarm is shown in Fig.\ref{fig:cdf-p-01}.
 %This figure explain that every swarm has different number of $p$ value $\ge 0.1$.
 %Some Bittorrent swarms do not exhibit power-law model and some others show the plausibility of power-law model.
@@ -317,7 +319,7 @@ We address these concerns next.
 \end{center}
 \caption{CDF plot of $p$ value of K-S statistics.} 
 %It shows that across our entire set of Bittorrent snapshots, around $45\%$ of the time a power-law distribution is not a good fit for the data. 
-The inset figure shows the CDF plot $p$ value for each torrent. The dash line on $p$ value = 0.1 is the threshold.} 
+%The inset figure shows the CDF plot $p$ value for each torrent. The dash line on $p$ value = 0.1 is the threshold.} 
 \label{fig:cdf-p}
 \vspace{-2mm}
 \end{figure}
@@ -344,17 +346,18 @@ We use the likelihood ratio test to see whether other distributions can give bet
 \includegraphics[width=2.5in]{graphs/new/gabung-korelasi-p-rho-4region.eps}
 \end{minipage}\\[-7pt]
 \begin{minipage}[t]{.45\linewidth}
-\caption{Scatter plot of $p$ value vs $\rho$ value. Points in area 1 ($\rho$ value $<0.1$ and $p$ value $>0$) are the samples where a power-law with exponential cut-off is a more plausible model than a power-law. In area 3, a pure power-law may be more plausible than power-law with exponential cut-off, while in area 2 the results are ambiguous.}
+\caption{Scatter plot of $p$ value vs $\rho$ value.} 
+%Points in area 1 ($\rho$ value $<0.1$ and $p$ value $>0$) are the samples where a power-law with exponential cut-off is a more plausible model than a power-law. In area 3, a pure power-law may be more plausible than power-law with exponential cut-off, while in area 2 the results are ambiguous.}
 \label{fig:scatter-pvalue-vs-rho}
 \end{minipage}%
 \hfill%
 \begin{minipage}[t]{.45\linewidth}
-\caption{Scatter plot of $p$ value vs log-likelihood ratio (LR) for $\rho < 0.1$.
-         In this figure we define area 1: $LR>0$ and $p$ value $<0.1$, area 2: $LR>0$ 
-         and $p$ value $>0.1$, area 3: $LR<0$ and $p$ value $<0.1$, area 4: $LR<0$ and $p$ 
-         value $>0.1$. There are no points in area 1 and area 2, meaning that the power-law
-         model is not a better model for all data; instead $42\%$ of the points lie in area 3 
-         and $58\%$ of the points lie in area 4.}
+\caption{Scatter plot of $p$ value vs log-likelihood ratio (LR) for $\rho < 0.1$.}
+         %In this figure we define area 1: $LR>0$ and $p$ value $<0.1$, area 2: $LR>0$ 
+         %and $p$ value $>0.1$, area 3: $LR<0$ and $p$ value $<0.1$, area 4: $LR<0$ and $p$ 
+         %value $>0.1$. There are no points in area 1 and area 2, meaning that the power-law
+         %model is not a better model for all data; instead $42\%$ of the points lie in area 3 
+         %and $58\%$ of the points lie in area 4.}
 \label{fig:scatter-pvalue-vs-lr-for-rho-le-01}
 \end{minipage}%
 \vspace{-2mm}
