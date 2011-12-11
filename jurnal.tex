@@ -168,7 +168,7 @@ The snapshot duration may have minor effects on analyzing slowly changing networ
 However, in a P2P network, the characteristics of the network topology vary greatly with respect to the time scale of the snapshot duration \cite{stutzbach2008characterizing}.
 We consider $\tau=3 $ minutes to be a reasonable estimate of minimum session length in Bittorrent \cite{stutzbach2006understanding}. 
 
-\subsection{Graph Sampling}
+\subsection{Graph Sampling}\label{sec:graphsampling}
 Due to the large and dynamic nature of Bittorrent networks, it is often very difficult or impossible to capture global properties. 
 Facing this difficulty, sampling is a natural approach.
 However, collecting unbiased or representative sampling is also sometimes a challenging task.
@@ -176,18 +176,20 @@ However, collecting unbiased or representative sampling is also sometimes a chal
 Suppose that a Bittorrent overlay network is a graph $G(V,E)$ with the peers or nodes as vertices and connections between the peers as edges. 
 If we observe the graph in a time series,  i.e., we take samples of the graph, the time-indexed graph is $G_t = G(V_t,E_t)$.   
 From this set of graphs, we can define measurement window $[t_0,t_0 + \Delta]$ and select peers uniformly at random from the set: $V_{t_0,t_0+\Delta}=\bigcup^{t_0+\Delta}_{t=t_0} V_t$.
-In that equation, we do not distinguish between occurrences of the same peer at different times, thus focuses on sampling peers instead of peer properties. 
+In that equation, we can not distinguish properties of the same peer at different times, thus focuses on sampling peers instead of peer properties. 
 Stutzbach \textit{et al}. \cite{stutzbach2007sampling} showed that equation is only appropriate for exponentially distributed  peer session lengths but we know from existing measurement that Bittorrent networks peer session lengths have very high variation \cite{guo2005measurements}. 
-A simple illustrative: suppose we want to observe the number of files shared by peers.
-In this example system, half of the peers are up all the time and have many files, while the other peers remain for around 1 minute and are immediately replaced by new short lived peers who have few files.
-The common technique is to observed the system for long time and incorrectly conclude that most of the peers in the system have very few files.
+For illustrative: suppose we want to measure number of files shared by peers in Bittorrent swarm.
+In this example Bittorrent swarm, half of the peers are up all the time and have many files, while the other peers remain for around one minute and are immediately replaced by new short lived peers who have few files.
+The common technique is to observed the system for long time and sample the peers. 
+This technique will incorrectly conclude that most of the peers in the system have very few files.
 The problem of this approach is that it focuses on sampling peers instead of peer properties.
 It selects each sampled nodes at most once.
 However, the property at the nodes may change with time.  
 Our goal should not be to select a vertex $v_i \in \bigcup^{t_0+\Delta}_{t=t_0} V_t$ but rather to sample the property at $v_i$ at a particular instant $t$.
-Thus, we distinguish between occurrences of the same peer at different times: samples $v_{i,t}$ and $v_{i,t'}$ gathered at distinct times $t t'$ are viewed as distinct, even when they come from the sampe peer.
-The key is that it must be possible to sample from the same peer more than once at different points in time.
-Thus we can formalize this into $v_{i,t} \in V_t  , t \in [t_0, t_0 + \Delta]$
+Thus, we must distinguish between occurrences of the same peer at different times: samples $v_{i,t}$ and $v_{i,t'}$ gathered at distinct times $t t'$ are viewed as distinct, even when they come from the sampe peer.
+The key in this technique is that it must be possible to sample from the same peer more than once at different points in time.
+Thus we can formalize this into $v_{i,t} \in V_t  , t \in [t_0, t_0 + \Delta]$.
+With that technique, the sampling will not biased by the dynamics of peer behavior because we track same peer's property in different of time. 
 %We define a measurement window $[t_0,t_0 + \tau]$ and select peers at random from the set:
 % \begin{equation}
 %V_{t0,t_0+\Delta} = \bigcup_{t=t_0}^{t_0+\tau} V_t.
@@ -214,7 +216,7 @@ Almost all of these torrents were in steady-state phase, which is more dominant 
 %Swams of a new episode of TV series are being created weekly and popular TV series attract many people to join the swarm which make these swarms perfect for our experiments.
 We used a modified rasterbar libtorrent \cite{rasterbar} client that is connection greedy, where the client tries to connect to all peers it knows without a limit on the number of connections, and the client logs PEX messages received from other clients.
 PEX messages from old versions of Vuze Bittorrent clients contain all of peers they connected to in the past, hence these clients should be removed from the data.
-Removal of some peers in data processing is valid in terms of sampling with dynamics, see Eq.(\ref{eq:samplingvertices2}).
+Removal of some peers in data processing is valid in terms of sampling with dynamics, see Sec.(\ref{sec:graphsampling}).
 In terms of connectivity, two popular Bittorrent clients (uTorrent and Vuze), by default try to connect to peer candidates randomly without any preference, thus we have random data sets.
 This implies that our data set is independent of measurement location and the number of measurement locations.
 
