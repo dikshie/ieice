@@ -123,7 +123,7 @@ Before distributing a file, a \textit{metainfo} file must be created.
 The \textit{tracker} is a central server keeping a list of all peers participating in the \textit{swarm}, which is the set of peers that are participating in distributing the same file.  
 If a peer wants to join a Bittorrent swarm, it must download the metainfo file from a well-known Bittorrent tracker, usually via HTTP. 
 After the metainfo file is read, a Bittorrent application contacts a tracker, which responds with an initial peer set of randomly selected peers, possibly including seed and leecher IP addresses and port numbers.  
-
+The tracker returns 50 peers by default. 
 \begin{figure}[tb]
 \begin{center}
 \includegraphics[scale=0.32]{graphs/pex_2.eps}
