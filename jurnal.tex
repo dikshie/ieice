@@ -600,14 +600,15 @@ We have investigated the properties of Bittorrent overlay topologies from the po
 %We cope with the dynamics of the overlay by sampling peer properties. 
 Our results agree in some particulars and disagree in others with prior published work on isolated testbed experiments on Bittorrent, suggesting that more work is required to fully model the behavior of real-world Bittorrent networks.
 %%Unlike \cite{dale2008evolution},
+
 We find that the node degree of the graph formed in a Bittorrent swarm can be described by a power law with exponential cut-off, and the observation of a low clustering coefficient implies Bittorrent networks are close to random networks.
 From Bitorrent point of view, the reason that a Bittorrent swarm can be described by a power-law with exponential cut-off is: the leecher in Bittorrent prefer a few good seeders or neighbours that give high data rate to exchange the data that we have been explained in sec.\ref{sec:background}. 
 That explains few seeders or neighbours have rich connections to the peers while other peers only have a few neighbours. 
 We argue that there are two reasons for cut-off phonemenon. 
-First, while most Bittorrent clients configure the maximum global connection between $200-300$, the maximum connection per torrent (swarm) is set between $50 - 80$ by default. 
-Even some Bitorrent forums suggest to decrease the maximum connection for torrent (swarm) to between $30-40$. 
+First, while most Bittorrent clients configure the maximum global connection between $200-300$, the maximum connection per torrent (swarm) is set between $50 - 80$ by default \cite{clientv}\cite{clientu}.
+Even some Bitorrent forums suggest to decrease the maximum connection for torrent (swarm) to between $30-40$ \cite{clientf}. 
 Second, most of the Bittorrent users are home user where their home gateway device can not give high concurrent connections and Bitorrent is not main online activity. 
-We argur that the Bittorrent swarm closes to random that we infer from clustering coeficient is caused by Bittorrent mechanism itself that always choose random peers from its neighbours in choking-unchoking algorithm, optimistic choking algorithm, and optimistic connect algorithm as we explain on sec.\ref{sec:background}.
+We argue that the Bittorrent swarm closes to random that we infer from clustering coeficient is caused by Bittorrent mechanism itself that always choose random peers from its neighbours in choking-unchoking algorithm, optimistic choking algorithm, and optimistic connect algorithm as we explain on sec.\ref{sec:background}.
 
 
 Some areas of improvement that we have identified for future work are: more correlation analysis of the number of peers with $\alpha$ and $p$ value, continued characterization with NATed peers, wider likelihood ratio test with other models and comparing the results with simulation for global graph properties such as distance distribution and spectrum.
