@@ -28,7 +28,9 @@
 %\SpecialIssue{}
 \SpecialSection{on Frontiers of Information Network Science}
 %\theme{}
-\title{Bittorrent Swarms Topologies Dynamics}
+%\title{Bittorrent Swarms Topologies Dynamics}
+\title{Infering Bittorrent Swarms Topologies with Peer Exchange Protocol}
+
 %\title[title for header]{title}
 \titlenote{A short version of this paper was presented at IEEE Netscicom 2011}
 \authorlist{% fill arguments of \authorentry, otherwise error will be caused. 
@@ -195,16 +197,16 @@ In that equation, we can not distinguish properties of the same peer at differen
 Stutzbach \textit{et al}. \cite{stutzbach2007sampling} showed that equation is only appropriate for exponentially distributed  peer session lengths but we know from existing measurement that Bittorrent networks peer session lengths have very high variation \cite{guo2005measurements}. 
 
 For example: suppose we want to measure number of files shared by peers in Bittorrent swarm.
-In this example Bittorrent swarm, half of the peers are up all the time and have many files, while the other peers remain for around one minute and are immediately replaced by new short lived peers who have few files.
-The common technique is to observed the system for long time and sample the peers. 
+In this Bittorrent swarm, half of the peers are up all the time and have many files, while the other peers remain around for one minute and are immediately replaced by new short lived peers who have few files.
+The common technique is to observed the system for long time and sample the peers randomly. 
 This technique will incorrectly conclude that most of the peers in the system have very few files.
-The problem of this technique is that it focuses on sampling peers instead of peer properties.
-It selects each sampled nodes at most once.
-However, the property at the nodes may change with time.  
-The goal should not be to select a vertex $v_i \in \bigcup^{t_0+\Delta}_{t=t_0} V_t$ but to sample the property at $v_i$ at a particular instant $t$.
+The problem of this technique is that it focuses on sampling number of peers instead of peer properties.
+%It selects each sampled nodes at most once.
+%However, the property at the nodes may change with time.  
+The goal should not be to select a vertex $v_i \in \bigcup^{t_0+\Delta}_{t=t_0} V_t$ but to sample the property of a vertex at $v_i$ at a particular instant time $t$.
 Thus, we must distinguish between occurrences of the same peer at different times: samples $v_{i,t}$ and $v_{i,t'}$ gathered at different times $t \neq t'$ are viewed as different, even come from the same peer.
 The key in this technique is that it must be able to sample from the same peer more than once at different points in time.
-Thus we can formalize this into $v_{i,t} \in V_t  , t \in [t_0, t_0 + \Delta]$.
+Thus we can formalize this into $v_{i,t} \in V_t  , t \in [t_0, t_0 + \Delta]$ \cite{ stutzbach2007sampling}. 
 With that technique, the sampling will not biased because we track same peer's property in different of time. 
 %We define a measurement window $[t_0,t_0 + \tau]$ and select peers at random from the set:
 % \begin{equation}
