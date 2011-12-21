@@ -32,7 +32,7 @@
 %\title{Study of Bittorrent Swarms Topologies Properties with Peer Exchange Protocol}
 %\title{Study of Bittorrent Swarms Topologies Properties}
 %\title{Infering Bittorrent Swarms Topologies Properties using Peer Exchange Protocol}
-\title{Infering Bittorrent Swarms Topologies with Peer Exchange Protocol}
+\title{Infering Bittorrent Swarms Topologies Using Peer Exchange Protocol}
 %
 %\title[title for header]{title}
 \titlenote{A short version of this paper was presented at IEEE Netscicom 2011}
@@ -67,7 +67,7 @@ Bittorrent swarms are far more dynamic than has been recognized previously, pote
 \end{summary}
 \begin{keywords}
 P2P, Bittorrent, PEX, Power-Law, Network Topology 
-\end{keywords}
+\end{keywords} 
 
 
 \section{Introduction}
@@ -135,13 +135,13 @@ The unchoking algorithm makes a leecher to select $N$ (typically 4) neighbours o
 These peers are then unchoked when the rest of the peer's neighbours are choked. 
 The Bittorrent peer unchokes $N$ peers from whom it received data in the last $20$ seconds.
 Therefore, unchoking algorithm tries to find good neighbours to exchange the data. 
-Moreover, there is \textit{optimistic unchoke} algorithm in Bittorrent. 
-Every $30$ second the Bittorrent peer utilizes optimistic algorithm. 
+Moreover, there is the \textit{optimistic unchoke} algorithm in Bittorrent. 
+Every $30$ seconds the Bittorrent peer utilizes optimistic algorithm. 
 It chooses a random peers from its neighbours and upload data to it. 
 This algorithm allows a peer to discover better peers to exchange the data. 
 Some popular Bittorrent clients utilize a new additional algorithm named \textit{optimistic connect} during leecher phase. 
 This algorithm drops the connection to neighbours that have uploaded few or no data to the leecher then these neighbours are subtituted by new peers.
-Generaly, choking-unchoking algorithm also called as \textit{it-for-tat}. 
+Generaly, choking-unchoking algorithm also called as \textit{tit-for-tat}. 
 Those combined algorithms contribute to swarm dynamics.  
 
 \begin{figure}[tb]
@@ -574,17 +574,18 @@ Dale \textit{et al}. \cite{dale2008evolution}, in an experimental study on Plane
 They found that a network of peers that unchoked each other is scale-free and the node degree follows a power-law distribution with exponent approximately 2. 
 Dale \textit{et al}. \cite{dale2008evolution} also showed that the path length formed in Bittorrent swarms averages four hops and Bittorrent swarms have low average clustering coefficient.  
 However, little work has been done on confirming that such controlled experiments correspond to the system. %that topology in the real world. 
+
 We emphasize that compared to Ho\ss{}feld \textit{et al}. \cite{TR464}, our work provides completely different approach and goal.
-Ho\ss{}feld \textit{et al}. \cite{TR464} discuss the AS (Autonomous System) level topology of Bittorrent swarm for optimizing overlay traffic across AS, while our study focus on microspic dynamic aspect which is Bittorrent swarms topology itself (peer level or IP address level). 
+Ho\ss{}feld \textit{et al}. \cite{TR464} discuss the AS (Autonomous System) level topology of Bittorrent swarm for optimizing overlay traffic across ASes, while our study focus on microspic dynamic aspect which is Bittorrent swarms topology itself (peer level or IP address level). 
 The closest work to ours is Kryczka \textit{et al}. \cite{Kryczka2011}.
-While our method slightly same with them, they are focus on clustering and locality while our focus are on node degree and clustering.
+While our method is slightly same with theirs, they are focus on clustering and locality while our focus are on node degree and clustering.
 They use PEX to discover peer relationship unfortunately they do not explain in detail how to process the PEX data set because the PEX implementation is different between Bittorrent clients.
-Because of different PEX implementation between Bittorrent clients, we need to deal with it in data processing.  
-In our works, we describe PEX behavior and its limitation on popular two Bittorrent clients on the Internet : vuze and utorrent, and we also explain how to treat with PEX data from different Bittorrent clients. 
-We also provide simulation to confirm that our methods to infer peer relationship with PEX is valid.  
-They observed that Bittorrent swarms have slightly higher clustering coefficient compare to random graphs of the same size and they observe neither of Bittorrent swarms fulfil the properties of small world.
+Because of different PEX implementation between Bittorrent clients, we need to be carefull with it in data processing.  
+In our work, we describe PEX behavior and its limitation on popular two Bittorrent clients on the Internet : Vuze and uTorrent, and we also explain how to treat with PEX data from different Bittorrent clients. 
+We also provide simulation result to confirm that our methods to infer peer relationship with PEX is valid.  
+They observed that Bittorrent swarms have slightly higher clustering coefficient compare to random graphs of the same size and they observe neither of Bittorrent swarms fulfill the properties of small world.
 The slightly difference in clustering aspect come from the difference of PEX data processing. 
-They assume that PEX is same and complete for all Bittorrent clients therefore they can get slightly different result. 
+They assume that PEX is same and complete for all Bittorrent clients therefore they get slightly different result. 
 
 Our results agree with previous research \cite{dale2008evolution} in some areas and disagree in others, perhaps for two reasons.
 First, power-law claims must be handled carefully. 
@@ -604,9 +605,10 @@ We have investigated the properties of Bittorrent overlay topologies from the po
 Our results agree in some particulars and disagree in others with prior published work on isolated testbed experiments on Bittorrent, suggesting that more work is required to fully model the behavior of real-world Bittorrent networks.
 %%Unlike \cite{dale2008evolution},
 
-We find that the node degree of the graph formed in a Bittorrent swarm can be described by a power law with exponential cut-off, and the observation of a low clustering coefficient implies Bittorrent networks are close to random networks.
-From Bitorrent point of view, the reason that a Bittorrent swarm can be described by a power-law with exponential cut-off is: the leecher in Bittorrent prefer a few good seeders or neighbours that give high data rate to exchange the data that we have been explained in Sect.\ref{sec:background}. 
-That explains few seeders or neighbours have rich connections to the peers while other peers only have a few neighbours. 
+We find that the node degree of the graph formed in a Bittorrent swarm can be described by a power law with exponential cut-off and the observation of a low clustering coefficient implies Bittorrent networks are close to random networks.
+From Bittorrent protocol point of view, the reason that a Bittorrent swarm can be described by a power-law with exponential cut-off is: leechers in a Bittorrent swarm prefer a few good seeders or neighbours that can give high data rate to exchange the data and seeders have rich connections to leechers as seeders have complete chunks or pieces. 
+%we have been explained it in Sect.\ref{sec:background}. 
+That behavior explains seeders have rich connections while leechers only have a few neighbours. 
 We argue that there are two reasons for cut-off phonemenon. 
 First, most Bittorrent clients configure the maximum global connection between $200-300$ however the maximum connection per torrent (swarm) is set between $50 - 90$ by default \cite{clientv}\cite{clientu}.
 Even some Bitorrent forums suggest to decrease the maximum connection for torrent (swarm) to between $30-40$ \cite{clientf}. 
