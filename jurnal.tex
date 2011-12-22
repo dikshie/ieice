@@ -28,11 +28,7 @@
 %\SpecialIssue{}
 \SpecialSection{on Frontiers of Information Network Science}
 %\theme{}
-%\title{Bittorrent Swarms Topologies Dynamics}
-%\title{Study of Bittorrent Swarms Topologies Properties with Peer Exchange Protocol}
-%\title{Study of Bittorrent Swarms Topologies Properties}
-%\title{Infering Bittorrent Swarms Topologies Properties using Peer Exchange Protocol}
-\title{Infering Bittorrent Swarms Topologies Using Peer Exchange Protocol}
+\title{Assessing The Dynamics of Bittorrent Swarms Topologies Using The Peer Exchange Protocol}
 %
 %\title[title for header]{title}
 \titlenote{A short version of this paper was presented at IEEE Netscicom 2011}
@@ -57,8 +53,8 @@
 \maketitle
 
 \begin{summary}
-Bittorrent is one of the most popular and successful application in the current Internet.
-However, we still have little knowledge about the topology of real Bittorrent swarms and how the topology of real Bittorrent swarms, how dynamic the topology is, and how it affects overall behavior.
+Bittorrent is one of the most popular and successful applications in the current Internet.
+However, we still have little knowledge about the topology of real Bittorrent swarms ms, how dynamic the topology is, and how it affects overall behavior.
 This paper describes an experimental study of the overlay topologies of real-world Bittorrent networks, focusing on the activity of the nodes of its P2P topology and especially their dynamic relationships. 
 Peer Exchange Protocol (PEX) messages are analyzed to infer topologies and their properties, capturing the variations of their behavior.  
 Our measurements, verified using the Kolmogorov-Smirnov goodness of fit test and the likelihood ratio test and confirmed via simulation, show that a power-law with exponential cutoff is a more plausible model than a pure power-law distribution.  
@@ -127,22 +123,27 @@ Before distributing a file, a \textit{metainfo} file must be created.
 This metainfo file, also called a \textit{torrent file}, contains the size of the file, the number of pieces/chunks into which the file is divided, SHA-1 hashes for every piece to verify the integrity of received pieces/chunks, and the IP addresses and port numbers of trackers.  
 The \textit{tracker} is a central server keeping a list of all peers participating in the \textit{swarm}, which is the set of peers that are participating in distributing the same file.  
 If a peer wants to join a Bittorrent swarm, it must download the metainfo file from a well-known Bittorrent tracker, usually via HTTP. 
-After the metainfo file is read, a Bittorrent application contacts a tracker, which responds with an initial peer set of randomly selected peers, possibly including seed and leecher IP addresses and port numbers.  
+After the metainfo file is read, a Bittorrent application contacts a tracker, which responds with an initial peer set of randomly selected peers, possibly including seeder and leecher IP addresses and port numbers.  
 The tracker returns 50 peers by default.
+Seeder is a peer that have complete pieces/chunks.
+Leecher is a peer that does not have complete pieces/chunks.
+A peer that does not has complete pieces/chunks and in process exchanging pieces/chunks with other peers called a peer in leecher phase.
+A peer that has complete pieces/chunks and in process uploading pieces/chunks to other peers called a peer in seeder phase. 
 
 Data exchange in Bittorrent is based on \textit{choking-unchoking} algorithm.
-The unchoking algorithm makes a leecher to select $N$ (typically 4) neighbours of peers randomly to upload pieces for every 10 seconds.
-These peers are then unchoked when the rest of the peer's neighbours are choked. 
+In the unchoking algorithm, a leecher selects $N$ (typically 4) neighbours of peers randomly to upload pieces for every 10 seconds.
+These peers are then unchoked when the rest of the peer's neighbours are choked.
+Choke means a peer stop exchanging pieces/chunks with other peers, while unchoke means a peer is exchange pieces/chunks with other peers.
 The Bittorrent peer unchokes $N$ peers from whom it received data in the last $20$ seconds.
-Therefore, unchoking algorithm tries to find good neighbours to exchange the data. 
+Choking-unchoking algorithm tries to find good neighbours to exchange the data. 
 Moreover, there is the \textit{optimistic unchoke} algorithm in Bittorrent. 
-Every $30$ seconds the Bittorrent peer utilizes optimistic algorithm. 
-It chooses a random peers from its neighbours and upload data to it. 
+Every $30$ seconds, the Bittorrent peer utilizes the optimistic algorithm. 
+It chooses a random peers from its neighbours and uploads data to it. 
 This algorithm allows a peer to discover better peers to exchange the data. 
-Some popular Bittorrent clients utilize a new additional algorithm named \textit{optimistic connect} during leecher phase. 
-This algorithm drops the connection to neighbours that have uploaded few or no data to the leecher then these neighbours are subtituted by new peers.
-Generaly, choking-unchoking algorithm also called as \textit{tit-for-tat}. 
-Those combined algorithms contribute to swarm dynamics.  
+Some popular Bittorrent clients utilize a new additional algorithm named \textit{optimistic connect} during leecher phase.
+This algorithm drops the connection to neighbours that have uploaded few or no data to the leecher, then these neighbours are subtituted with new peers.
+Choking-unchoking algorithm is also called as \textit{tit-for-tat}. 
+These combined algorithms contribute to swarm dynamics.  
 
 \begin{figure}[tb]
 \begin{center}
@@ -157,7 +158,6 @@ learns that now peer A is connected to peer D. Thus the actor knows the properti
 
 PEX is a mechanism introduced in Bittorrent to discover other peers in the swarm, in which two connected peers exchange messages containing a set of connected peers.  
 With PEX, peers only need to use the tracker as an initial source of peers.   
-%%Based on a survey by the authors of several Bittorent client web sites, it appears that most clients began to introduce PEX in 2007 \cite{client}.
 A peer will send a PEX message to other peers that support the PEX protocol. 
 The PEX message contains the set of peers that are currently connected.
 
@@ -173,10 +173,9 @@ First, although a Bittorrent \textit{peer} may offer some information about its 
 Second, a peer never sends information about its connections with other peers to the tracker, so we cannot infer overlay topologies by querying or hosting a tracker.  
 Our other options inferring topologies are simulation or deploying Bittorrent nodes in a real network or in a laboratory, e.g., PlanetLab. Deploying hundreds to thousands of nodes in a real network or in the laboratory in a manner that accurately reflects the real world is a very challenging task.
 
-%Here we present a simple way to get peer information from a  Bittorrent swarm. 
-We used PEX to collect peer neighbors information  (see Fig.\ref{fig:pexworks}) and then we describe the network formed in terms of properties such as node degree and average clustering. 
+We used PEX to collect information about peer neighbors (see Fig.\ref{fig:pexworks}), and then we describe the network formed in terms of properties such as node degree and average clustering. 
 Besides collecting data from real Bittorrent networks, we ran simulations similar to these of Al-Hamra \textit{et al}. \cite{al2009swarming}. 
-In these simulations, we assumed that peer arrivals and departures (churns) follow an exponential distribution as explained by Guo \textit{et al}. \cite{guo2005measurements}. 
+In these simulations, we assumed that peer arrivals and departures (churn) follow an exponential distribution as explained by Guo \textit{et al}. \cite{guo2005measurements}. 
 For simplification, we assumed that nodes are not behind a NAT.
 Since we are only interested in the construction of the overlay topology, we argue that our simulations are thorough enough to explain the overlay properties.
 
@@ -195,20 +194,20 @@ However, collecting unbiased or representative sampling is also sometimes a chal
 
 Suppose that a Bittorrent overlay network is a graph $G(V,E)$ with the peers or nodes as vertices and connections between the peers as edges. 
 If we observe the graph in a time series,  i.e., we take samples of the graph, the time-indexed graph is $G_t = G(V_t,E_t)$.   
-From this set of graphs, we can define measurement window $[t_0,t_0 + \Delta]$ and select peers uniformly at random from the set: $V_{t_0,t_0+\Delta}=\bigcup^{t_0+\Delta}_{t=t_0} V_t$.
-In that equation, we can not distinguish properties of the same peer at different times, thus focuses on sampling peers instead of peer properties. 
+From this set of graphs, we can define a measurement window $[t_0,t_0 + \Delta]$ and select peers uniformly at random from the set: $V_{t_0,t_0+\Delta}=\bigcup^{t_0+\Delta}_{t=t_0} V_t$.
+In that equation, we cannot distinguish properties of the same peer at different times, thus it focuses on sampling peers instead of peer properties. 
 Stutzbach \textit{et al}. \cite{stutzbach2007sampling} showed that equation is only appropriate for exponentially distributed  peer session lengths but we know from existing measurement that Bittorrent networks peer session lengths have very high variation \cite{guo2005measurements}. 
 
 For example: suppose we want to measure number of files shared by peers in Bittorrent swarm.
-In this Bittorrent swarm, half of the peers are up all the time and have many files, while other peers remain around for one minute and are immediately replaced by new short lived peers who have few files.
-The common method is to observed the system for long time and sample the peers randomly. 
+In this Bittorrent swarm, half of the peers are up all the time and have many files, while other peers remain around for one minute and are immediately replaced by new short-lived peers who have few files.
+The common method is to observed the system for a long time and sample the peers randomly. 
 This method will incorrectly conclude that most of the peers in the system have very few files.
-The problem of this method is that it focuses on sampling number of peers instead of peer properties.
-Our objective should not be to select a vertex $v_i \in \bigcup^{t_0+\Delta}_{t=t_0} V_t$ but to sample the property of a vertex $v_i$ at a particular instant time $t$.
+The problem with this method is that it focuses on sampling the number of peers instead of peer properties.
+Our objective should not be to select a vertex $v_i \in \bigcup^{t_0+\Delta}_{t=t_0} V_t$ , but to sample the property of a vertex $v_i$ at a particular instant time $t$.
 Therefore, we must distinguish the occurrences of the same peer at different times: samples $v_{i,t}$ and $v_{i,t'}$ gathered at different times $t \neq t'$ are viewed as different, even from the same peer.
 The key in this method is that we must be able to sample from the same peer more than once at different points in time.
 Thus we can formalize this into $v_{i,t} \in V_t  , t \in [t_0, t_0 + \Delta]$ \cite{ stutzbach2007sampling}. 
-With that method, the sampling will not biased because we track same peer's property in different of time. 
+With that method, the sampling will not biased because we track the peer's properties overtime. 
 %We define a measurement window $[t_0,t_0 + \tau]$ and select peers at random from the set:
 % \begin{equation}
 %V_{t0,t_0+\Delta} = \bigcup_{t=t_0}^{t_0+\tau} V_t.
@@ -357,16 +356,7 @@ We address these concerns next.
 \label{fig:cdf-p}
 \vspace{-2mm}
 \end{figure}
-
-\subsection{Alternative Distributions}
-Even if we have estimated the power-law parameter properly and the fit is decent, it does not mean the power-law model is good.
-It is always possible that non-power-law models are better than the power-law model.
-%Direct comparison of models is a method which can directly compare two distributions against each other.
-There are several methods for direct comparison of two distributions such as \textit{likelihood ratio test} \cite{vuong1989likelihood}, \textit{Bayesian test}, and \textit{Minimum description length}.
-The likelihood ratio test idea is to compute the likehood of the data sets under two distributions. 
-The one with the higher likehood is the better fit. 
-We use the likelihood ratio test to see whether other distributions can give better parameter estimation.
-
+ 
 \begin{figure*}[!tb]
 \centering
 \begin{minipage}[b]{.45\linewidth}
@@ -397,30 +387,39 @@ We use the likelihood ratio test to see whether other distributions can give bet
 \vspace{-2mm}
 \end{figure*}
 
+\subsection{Alternative Distributions}
+Even if we have estimated the power-law parameter properly and the fit is decent, it does not mean the power-law model is good.
+It is always possible that non-power-law models are better than the power-law model.
+%Direct comparison of models is a method which can directly compare two distributions against each other.
+There are several methods for direct comparison of two distributions such as \textit{likelihood ratio test} \cite{vuong1989likelihood}, \textit{Bayesian test}, and \textit{Minimum description length}.
+The likelihood ratio test idea is to compute the likehood of the data sets under two distributions. 
+The one with the higher likehood is the better fit. 
+We use the likelihood ratio test to see whether other distributions can give better parameter estimation.
+
 \subsubsection{Nested Case}
 We now hypothesize that the smaller family of power-law distributions may give a better fit to our data sets.
 We only consider a power-law model and a power-law with exponential cut-off model as examples to show model selection.
 Model selection for power-law model and power-law with exponential cut-off is a kind of nested model selection problem.
 In a nested model selection,  there is always the possibility that a bigger family (power-law) can provide as good a fit as the smaller family (power-law with exponential cut-off).
-In likelihood ratio test, we must provide the significance value ($\rho$ value).
+In a likelihood ratio test, we must provide the significance value ($\rho$ value).
 Under the likelihood ratio test, we compare the pure power-law model to power-law with exponential cut-off, and the $\rho$ value here helps us establish which of three possibilities occurs: (i) $\rho > 0.1$ means there is no significant difference between the likelihood of the data under the two hypotheses being compared and thus neither is favored over the other; if we already rejected the pure power-law model, then this does not necessarily tell us that we also can reject the alternative model; (ii) $\rho  < 0.1$ and the sign of likelihood ratio (LR) = negative means that there is a significant difference in the likelihoods and that the alternative model is better; if we have already rejected the pure power-law model, then this case simply tells us that the alternative model is better than the bad model we rejected; (iii) if $\rho < 0.1$ and the sign of LR = positive means that there is a significant difference and that the pure power-law model is better than the alternative; if we have already rejected the pure power-law model, then this case tells us the alternative is even worse than the bad model we already rejected.
 
 Figure \ref{fig:scatter-pvalue-vs-rho} shows a $p$ value vs $\rho$ value scatter plot, divided into three areas.
-Area 1: $\rho$ value $<0.1$ and $p$ value $>0$. 
-Area 2: $\rho$ value $>0.1$ and $p$ value $<0.1$.
-Area 3: $\rho$ value $>0.1$ and  $p$ value $>0.1$. 
+Area 1: $\rho$ $<0.1$ and $p$ $>0$. 
+Area 2: $\rho$ $>0.1$ and $p$ $<0.1$.
+Area 3: $\rho$ $>0.1$ and $p$ $>0.1$. 
 %This division will make it easier to see how sparse the points are in each area and to see how many points fall into $\rho$ value $<0.1$.
 This figure shows that $52\%$ of the samples lie in area 1, thus an alternative model may be plausible for these samples.
 %We do not count LR value in that figure instead at least $\rho < 0.1$ is indication that alternative model gives a better fit rather than pure power-law model.
 
 Now we plot $p$ value vs LR as shown in Fig. \ref{fig:scatter-pvalue-vs-lr-for-rho-le-01} for $\rho < 0.1$.
 We divide the figure into four areas: area 1, area 2, area 3, and area 4  with green lines as borders to see how sparse the points are in each area.
-Area 1: LR=positive sign and $p$ value $<0.1$.
-Area 2: LR=positive sign and $p$ value $>0.1$.
-Area 3: LR=negative sign and $p$ value $<0.1$.
-Area 4: LR=negative sign and $p$ value $>0.1$. 
+Area 1: LR=positive sign and $p$ $<0.1$.
+Area 2: LR=positive sign and $p$ $>0.1$.
+Area 3: LR=negative sign and $p$ $<0.1$.
+Area 4: LR=negative sign and $p$ $>0.1$. 
 In this figure, $58\%$ of the samples lie in area 3 and  $42\%$ lie in area 4, while there are no samples in areas 1 and 2, which means that the alternative model is better.
-Although in the case $p$ value $<0.1$ we reject power-law as the plausible model, the alternative model is still better than the power-law model. 
+Although in the case $p$ $<0.1$ we reject power-law as the plausible model, the alternative model is still better than the power-law model. 
 We believe that these results are caused by peers that are not willing to maintain large numbers of concurrent connections (high node degree).
 %In the nested case, if $\rho$ value $\leq 0.1$ the smaller family provides a better model, otherwise there is no evidence that a larger family is needed %to fit the data \cite{clauset2009power} \cite{vuong1989likelihood}. 
 %Instead showing CDF of $\rho$ values for very swarm which have high variation, Figure \ref{fig:cdf-lr} shows the CDF at $\rho$ value $=0.1$ for every swarm. 
@@ -431,14 +430,6 @@ We believe that these results are caused by peers that are not willing to mainta
 %We see  some snapshots have $\rho$ value less than 0.1 and we can say that on that snapshots power-law with exponential cut-off can be ruled out. 
 %We argue that the power-law with exponential cut-off occurs as implication of node degree bound in Bittorrent networks since a node wants only to attach to neighbors who will give best download rate and Bitorrent client software itself has default maximum connection limit.
 These observations clearly demonstrate that comparing models is a very complex task in highly dynamic networks.
-
-\subsubsection{Non-Nested Case}
-In non-nested case, we compare power-law distribution with log-normal distribution and exponential distribution.
-We calculate the ratio of two likelihood distributions or the logarithm of the ratio, which is positive or negative depending on which distribution is better of zero in the event of a tie. 
-The positive or negative sign of log-likelihood ratio does not definitively indicate which model is the better fit. 
-Vuong's \cite{vuong1989likelihood}  method gives a $\rho$ value that can tell us whether the observed sign of likelihood ratio is statistically significant.
-If this $\rho$ value is small ($\rho < 0.1$) then the sign of log-likehood ratio is a reliable indicator of which model is the better fit to the data. 
-If the $\rho$ value is large the sign of log-likehood ratio is not reliable and the test does not favor either model over the other. 
 
 \begin{figure*}[!tb]
 \centering
@@ -492,12 +483,15 @@ If the $\rho$ value is large the sign of log-likehood ratio is not reliable and 
 \vspace{-2mm}
 \end{figure*}
 
+\subsubsection{Non-Nested Case}
+In the non-nested case, we compare power-law distribution with log-normal distribution and exponential distribution.
+We calculate the ratio of two likelihood distributions or the logarithm of the ratio, which is positive or negative depending on which distribution is better.  
+The positive or negative sign of log-likelihood ratio does not definitively indicate which model is the better fit. 
+Vuong's \cite{vuong1989likelihood}  method gives a $\rho$ value that can tell us whether the observed sign of likelihood ratio is statistically significant.
+If this $\rho$ value is small ($\rho < 0.1$) then the sign of log-likehood ratio is a reliable indicator of which model is the better fit to the data. 
+If the $\rho$ value is large the sign of log-likehood ratio is not reliable and the test does not favor either model over the other. 
+
 Figure \ref{fig:cdf-p-lognorm} and Fig. \ref{fig:cdf-p-exp} show the CDF of the $\rho$ value for the log-likehood ratio between power-law and log-normal distributions and the log-likehood ratio between power-law and exponential distributions.
-%For power-law v.s log-normal distributions, less than $13\%$ of the $\rho$-values are less than $0.1$ therefore log-likelihood ratio sign is reliable only for $13\%$ data points.
-%In power-law v.s exponential distribution less than $5.5\%$ of the $\rho$ values are less than $0.1$ therefore log-likehood ratio sign is reliable only for $5.5\%$ data points.
-%For the other $87\%$ in power-law v.s log-normal distributions and $94.5\%$ in power-law v.s exponential distributions, this test indicates that we cannot use the sign of the log-likelihood ratio to draw firm conclusions.
-%Figure \ref{fig:scatter-lognorm} and Fig.\ref{fig:scatter-exp} show scatter plot the log-likehood ratio where $\rho$ value less than $0.1$ for power-law v.s log-normal distributions and power-law v.s exponential distributions. 
-%Since all like-lihood ratio values are negative the alternative distributions are not a better than power-law distributions. 
 Both alternative distributions only show very small number of data points that have $\rho < 0.1$, each at around $13\%$ and $5.5\%$.
 The log-likelihood ratio of these data points have negative signs as shown in Fig. \ref{fig:scatter-lognorm} and Fig. \ref{fig:scatter-exp}, therefore the alternative distributions are not better than power-law.
 With the vast majority of the values for $\rho$ being larger than 0.1, the results of the log-likelihood ratio test are ambiguous. 
@@ -519,7 +513,7 @@ where $t_i$ denotes the number of triangles around $i$ and $k_i$ denotes vertex 
 For the whole graph, the clustering coefficient is
 \begin{equation}
 C = \frac{1}{n} \sum_{i \in G} c_i.
-\end{equation}
+\end{equation} 
 A larger clustering coefficient represents more clustering at nodes in the graph, therefore the clustering coefficient expresses the local robustness of the network.
 The distinction between a random and a non-random graph can be measured by clustering-coefficient metrics \cite{watts1998collective}.
 A network that has a high clustering coefficient and a small average path length is called a \textit{small-world} model \cite{watts1998collective}.
@@ -530,7 +524,7 @@ Only one torrent exhibits clustering coefficient less than $0.1$ for about $40\%
 This low clustering coefficient observation is the same as that observed by Dale \textit{et al}. \cite{dale2008evolution}.
 Considering only the low clustering coefficient, the Bittorrent topologies seem to be close to random graphs.
 
-\begin{figure}[!tb]
+\begin{figure}[!tb] 
 \begin{center}
 \includegraphics[scale=0.5]{graphs/new/cdf-clustering.eps}
 \end{center}
@@ -550,13 +544,12 @@ We calculate the Spearman correlation for both $\alpha$ values from the global r
 The Spearman rank correlation coefficient is a non-parametric correlation measure that assesses the relationship between two variables
 without making any assumptions of a monotonic function.
 The Spearman rank correlation test gives $0.38 \leq \rho \leq 0.5$, which we consider to be moderately well correlated. 
-
+Therefore, The simulator confirms that the PEX method can be used to estimate $\alpha$.
 \begin{figure}[!tb]
 \begin{center}
 \includegraphics[scale=0.5]{netscicom-graphs/simula.eps}
 \end{center}
-\caption{$\alpha$ estimation and $p$ value for global topology and topology inferred from PEX where both done in our simulator.
-The simulator confirms that the PEX method can be used to estimate $\alpha$.} 
+\caption{$\alpha$ estimation and $p$ value for global topology and topology inferred from PEX where both done in our simulator.}
 \label{fig:simulation}
 \vspace{-5mm}
 \end{figure}
