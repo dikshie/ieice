@@ -270,8 +270,8 @@ For the detailed calculations of both $x_{min}$ and $\alpha$, see Appendix B in 
 \vspace{-6mm}
 \end{figure}
 
- %--------------- EXPERIMENT RESULT -------------------------
-\ section{Experimental Results}\label{result}
+%--------------- EXPERIMENT RESULT -------------------------
+\section{Experimental Results}\label{result}
 Our time samples for the size of swarms are plotted as the CDF of the number of peers for every swarm during measurement with 104 to 1400 time samples for each torrent, as shown in Fig. \ref{fig:num_peers}. 
 It is clear that the number of peers has high variability due to churn in Bittorrent networks. 
 %The number of peers will have a relationship with the clustering coefficient, which will be explained in section \ref{clusteringcoef}.
@@ -364,8 +364,8 @@ We address these concerns next.
 \label{fig:scatter-pvalue-vs-lr-for-rho-le-01}
 \end{minipage}%
 \vspace{-2mm}
-\en d{figure*}
- 
+\end{figure*}
+
 \subsection{Alternative Distributions}
 Even if we have estimated the power-law parameter properly and the fit is decent, it does not mean the power-law model is good.
 It is always possible that non-power-law models are better than the power-law model.
@@ -474,11 +474,11 @@ Figure \ref{fig:cdf-p-lognorm} and Fig. \ref{fig:cdf-p-exp} show the CDF of the 
 Both alternative distributions only show very small number of data points that have $\rho < 0.1$, each at around $13\%$ and $5.5\%$.
 The log-likelihood ratio of these data points have negative signs as shown in Fig. \ref{fig:scatter-lognorm} and Fig. \ref{fig:scatter-exp}, therefore the alternative distributions are not better than power-law.
 With the vast majority of the values for $\rho$ being larger than 0.1, the results of the log-likelihood ratio test are ambiguous. 
-Therefore, it is important to look at theoretical factors or design factors behind the systems to make a sensible judgment.
+Therefore, it is important to look at theoretical factors or design factors behind the systems to make a sensible judgement.
 For example: a leecher in a Bittorrent swarm is design to prefer the fastest seeders or leechers instead of high degree seeders or leechers. 
-With this design factor information, we can make a sensible judgment which distributional form is more reasonable.
+With this design factor information, we can make a sensible judgement which distributional form is more reasonable.
 
- 
+
 \subsection{Clustering Coefficient}\label{clusteringcoef}
 
 Networks show a tendency for link formation between neighboring vertices called \textit{clustering} that reflects the topology robustness.
@@ -639,4 +639,4 @@ an Executive Director of the Keio Research Institute at SFC, Keio
 University from 1999 to 2005.
 }
 
-end{document}
+\end{document}
