@@ -214,7 +214,7 @@ Almost all of these torrents were in steady-state phase, which is more dominant 
 %Swams of a new episode of TV series are being created weekly and popular TV series attract many people to join the swarm which make these swarms perfect for our experiments.
 We used a modified rasterbar libtorrent \cite{rasterbar} client that is connection greedy, where the client tries to connect to all peers it knows without a limit on the number of connections, and the client logs PEX messages received from other clients.
 PEX messages from old versions of Vuze Bittorrent clients contain all of peers they connected to in the past, hence these clients should be removed from the data.
-Removal of some peers in data processing is valid in terms of sampling with dynamics, see Sec.(\ref{sec:graphsampling}).
+Removal of some peers in data processing is valid in terms of sampling with dynamics, see Sect.(\ref{sec:graphsampling}).
 In terms of connectivity, two popular Bittorrent clients (uTorrent and Vuze), by default try to connect to peer candidates randomly without any preference, thus we have random data sets.
 This implies that our data set is independent of measurement location and the number of measurement locations.
 
@@ -272,7 +272,7 @@ For the detailed calculations of both $x_{min}$ and $\alpha$, see Appendix B in 
 
 %--------------- EXPERIMENT RESULT -------------------------
 \section{Experimental Results}\label{result}
-Our time samples for the size of swarms are plotted as the CDF of the number of peers for every swarm during measurement with 104 to 1400 time samples for each torrent, as shown in Fig. \ref{fig:num_peers}. 
+Our time samples for the size of swarms are plotted as the CDF of the number of peers for every swarm during measurement with 104 to 1400 time samples for each torrent, as shown in Fig.\ref{fig:num_peers}. 
 It is clear that the number of peers has high variability due to churn in Bittorrent networks. 
 %The number of peers will have a relationship with the clustering coefficient, which will be explained in section \ref{clusteringcoef}.
 
@@ -298,13 +298,13 @@ If $p \geq 0.1$ then a power-law model is a good model for the data set, and if 
 As mentioned before, a good estimation for $x_{min}$ is important to get a overall good fit.
 Too small an $x_{min}$ will cause a fit only to the body of the distribution.
 Too high an $x_{min}$ will cause a fit only to the tail of the distribution.
-Figure  \ref{fig:fitting} illustrates the fit for snapshots of \emph{torrent1} and \emph{torrent3}.
+Figure \ref{fig:fitting} illustrates the fit for snapshots of \emph{torrent1} and \emph{torrent3}.
 For \emph{torrent1}, setting $x_{min}=2$  leads to  $\alpha=2.11$, while $x_{min}=1$ gives $\alpha=2.9$.
 For \emph{torrent1}, xmin = 1 visually does not give a good fit, while for  \emph{torrent3}, setting $x_{min}=1$ leads to a visually good fit.
 
-Figure  \ref{fig:cdf-p} shows the CDF for $p$ values for all data sets. 
+Figure \ref{fig:cdf-p} shows the CDF for $p$ values for all data sets. 
 This figure shows that from the K-S statistics point of view, around $45\%$ of the time a power-law distribution is not a good fit for the data. 
-The inset figure in Fig. \ref{fig:cdf-p} shows the CDF plot $p$ value for each torrent. 
+The inset figure in Fig.\ref{fig:cdf-p} shows the CDF plot $p$ value for each torrent. 
 The dash line on $p$ value = 0.1 is the threshold.
 %A magnified view CDF value at p-value=$0.1$ for every swarm is shown in Fig.\ref{fig:cdf-p-01}.
 %This figure explain that every swarm has different number of $p$ value $\ge 0.1$.
@@ -391,7 +391,7 @@ Area 3: $\rho$ $>0.1$ and $p$ $>0.1$.
 This figure shows that $52\%$ of the samples lie in area 1, thus an alternative model may be plausible for these samples.
 %We do not count LR value in that figure instead at least $\rho < 0.1$ is indication that alternative model gives a better fit rather than pure power-law model.
 
-Now we plot $p$ value vs LR as shown in Fig. \ref{fig:scatter-pvalue-vs-lr-for-rho-le-01} for $\rho < 0.1$.
+Now we plot $p$ value vs LR as shown in Fig.\ref{fig:scatter-pvalue-vs-lr-for-rho-le-01} for $\rho < 0.1$.
 We divide the figure into four areas: area 1, area 2, area 3, and area 4  with green lines as borders to see how sparse the points are in each area.
 Area 1: LR=positive sign and $p$ $<0.1$.
 Area 2: LR=positive sign and $p$ $>0.1$.
@@ -470,9 +470,9 @@ Vuong's \cite{vuong1989likelihood}  method gives a $\rho$ value that can tell us
 If this $\rho$ value is small ($\rho < 0.1$) then the sign of log-likehood ratio is a reliable indicator of which model is the better fit to the data. 
 If the $\rho$ value is large the sign of log-likehood ratio is not reliable and the test does not favor either model over the other. 
 
-Figure \ref{fig:cdf-p-lognorm} and Fig. \ref{fig:cdf-p-exp} show the CDF of the $\rho$ value for the log-likehood ratio between power-law and log-normal distributions and the log-likehood ratio between power-law and exponential distributions.
+Figure \ref{fig:cdf-p-lognorm} and Fig.\ref{fig:cdf-p-exp} show the CDF of the $\rho$ value for the log-likehood ratio between power-law and log-normal distributions and the log-likehood ratio between power-law and exponential distributions.
 Both alternative distributions only show very small number of data points that have $\rho < 0.1$, each at around $13\%$ and $5.5\%$.
-The log-likelihood ratio of these data points have negative signs as shown in Fig. \ref{fig:scatter-lognorm} and Fig. \ref{fig:scatter-exp}, therefore the alternative distributions are not better than power-law.
+The log-likelihood ratio of these data points have negative signs as shown in Fig.\ref{fig:scatter-lognorm} and Fig.\ref{fig:scatter-exp}, therefore the alternative distributions are not better than power-law.
 With the vast majority of the values for $\rho$ being larger than 0.1, the results of the log-likelihood ratio test are ambiguous. 
 Therefore, it is important to look at theoretical factors or design factors behind the systems to make a sensible judgment.
 For example: a leecher in a Bittorrent swarm is design to prefer the fastest seeders or leechers instead of high degree seeders or leechers. 
