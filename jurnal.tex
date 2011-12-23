@@ -112,7 +112,7 @@ A peer that has complete pieces/chunks and in process uploading pieces/chunks to
 Data exchange in Bittorrent is based on \textit{choking-unchoking} algorithm.
 In the unchoking algorithm, a leecher selects $N$ (typically 4) neighbors of peers randomly to upload pieces for every 10 seconds.
 These peers are then unchoked when the rest of the peer's neighbors are choked.
-Choke means a peer stop exchanging pieces/chunks with other peers, while unchoke means a peer is exchange pieces/chunks with other peers.
+In choke condition, a peer stops exchanging pieces/chunks with other peers, while in unchoke condition a peer exchanges pieces/chunks with other peers.
 The Bittorrent peer unchokes $N$ peers from whom it received data in the last $20$ seconds.
 Choking-unchoking algorithm tries to find good neighbors to exchange the data. 
 Moreover, there is the \textit{optimistic unchoke} algorithm in Bittorrent. 
